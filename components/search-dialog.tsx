@@ -23,9 +23,9 @@ export default function SearchDialog() {
     <Dialog>
       <DialogTrigger asChild>
         <Button
-          variant="ghost"
-          size="icon"
-          className="shrink-0"
+          variant="secondary"
+          size="icon-sm"
+          className="shrink-0 cursor-pointer"
           aria-label="Search"
           title="Search"
         >

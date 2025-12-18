@@ -46,7 +46,7 @@ export default async function RootLayout({
           <SidebarProvider defaultOpen={defaultOpen}>
             <AppSidebar />
             <div className="w-full min-h-screen">
-              <header className="flex items-center bg-card h-14 border-b-2 border-b-primary/80 px-2 lg:px-100">
+              <header className="flex items-center bg-card/50 h-14 border-b-2 border-b-primary/80 px-2 md:px-40 lg:px-80">
                 <div className="flex w-full items-center gap-2 md:hidden">
                   <SidebarTrigger />
                   <span className="text-sm font-semibold tracking-[0.25em] uppercase text-muted-foreground">
@@ -62,7 +62,7 @@ export default async function RootLayout({
                 </div>
               </header>
 
-              <main>
+              <main className="lg:p-20">
                 {children}
               </main>
             </div>
