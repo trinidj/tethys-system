@@ -41,7 +41,7 @@ export function ResonatorCard({ resonator }: { resonator: Resonator }) {
             className="object-contain overflow-hidden hover:scale-110 transition-transform will-change-transform duration-300"
           />
 
-          <div className="absolute top-1 right-1 border-2 border-accent bg-card rounded-full">
+          <div className="absolute top-1 left-1 border-2 border-accent bg-card rounded-full">
             <Image 
               src={`${getAttributeIcon(resonator.attribute)}`}
               alt={resonator.attribute}
@@ -53,15 +53,15 @@ export function ResonatorCard({ resonator }: { resonator: Resonator }) {
           </div>
 
           {resonator.isNew && (
-            <div className="absolute left-1 top-1 transform-gpu">
-              <Badge variant="destructive" className="bg-background/80 text-xs">
+            <div className="absolute right-1 top-1 transform-gpu">
+              <Badge className="bg-red-600/80 text-xs">
                 New
               </Badge>
             </div>
           )}
 
           {!hasDetailData && (
-            <div className="absolute left-1 top-1 transform-gpu">
+            <div className="absolute right-1 top-1 transform-gpu">
               <Badge variant="outline" className="bg-background/80 text-xs">
                 Unavailable
               </Badge>
