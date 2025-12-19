@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 import { Label } from "@/components/ui/label";
 import { Resonator } from "@/types/resonator";
@@ -16,6 +18,16 @@ import {
 export function ResonatorCard({ resonator }: { resonator: Resonator }) {
   const assets = getResonatorAssets(resonator)
   const rarityColor = getRarityColor(resonator.rarity)
+
+  function ScrollToTop() {
+    const pathname = usePathname();
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
+  }
 
   const hasDetailData = Boolean(
     resonator.stats?.hp &&
@@ -87,7 +99,7 @@ export function ResonatorCard({ resonator }: { resonator: Resonator }) {
   }
 
   return (
-    <Link key={resonator.id} href={`/resonators/${resonator.id}`}>
+    <Link key={resonator.id} href={`/resonators/${resonator.id}`} onClick={ScrollToTop}>
       {CardInner}
     </Link>
   )
