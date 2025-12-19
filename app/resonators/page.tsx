@@ -15,7 +15,7 @@ import Link from "next/link"
 
 import data from "@/data/resonators/index.json"
 import type { Resonator } from "@/types/resonator"
-import { getResonatorAssets } from "@/utils/resonator-assets"
+import { getResonatorAssets, getAttributeIcon} from "@/utils/resonator-assets"
 import { getRarityColor } from "@/lib/color-utils"
 import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
@@ -71,6 +71,18 @@ export default function ResonatorsPage() {
                         quality={100}
                         className="object-contain overflow-hidden hover:scale-110 transition-transform will-change-transform duration-300"
                       />
+
+                      <div className="absolute top-1 left-1 border-2 border-accent bg-card rounded-full">
+                        <Image 
+                          src={`${getAttributeIcon(resonator.attribute)}`}
+                          alt={resonator.attribute}
+                          width={28}
+                          height={28}
+                          quality={100}
+                          className="object-contain"
+                        />
+                      </div>
+                      
                     </div>
                     <div 
                       className="bg-accent relative h-8 w-full flex items-center justify-center border-t-2 " 

@@ -5,6 +5,7 @@ import type {
   StatRange,
   SequenceNodeAssets,
   SkillAssets,
+  Attribute
 } from "@/types/resonator";
 
 export function getResonatorAssets(resonator: Resonator): ResonatorAssets {
@@ -74,4 +75,17 @@ export function calculateStat(statRange: StatRange, level: number): number {
   const { min, max } = statRange;
   const value = min + ((level - 1) * (max - min)) / 89;
   return Math.round(value);
+}
+
+const ATTRIBUTE_ICON_MAP: Record<Attribute, string> = {
+  Electro: "/assets/attributes/electro.png",
+  Aero: "/assets/attributes/aero.png",
+  Fusion: "/assets/attributes/fusion.png",
+  Glacio: "/assets/attributes/glacio.png",
+  Havoc: "/assets/attributes/havoc.png",
+  Spectro: "/assets/attributes/spectro.png",
+}
+
+export function getAttributeIcon(attribute: Attribute) {
+  return ATTRIBUTE_ICON_MAP[attribute]
 }
