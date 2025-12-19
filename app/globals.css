@@ -47,6 +47,13 @@
 
   --color-rarity-4: var(--rarity-4);
   --color-rarity-5: var(--rarity-5);
+
+  --color-electro: var(--electro);
+  --color-aero: var(--aero);
+  --color-fusion: var(--fusion);
+  --color-glacio: var(--glacio);
+  --color-havoc: var(--havoc);
+  --color-spectro: var(--spectro);
 }
 
 :root {

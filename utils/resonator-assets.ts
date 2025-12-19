@@ -5,7 +5,6 @@ import type {
   StatRange,
   SequenceNodeAssets,
   SkillAssets,
-  Rarity
 } from "@/types/resonator";
 
 export function getResonatorAssets(resonator: Resonator): ResonatorAssets {
@@ -66,10 +65,6 @@ export function getSequenceNodeAssets(resonator: Resonator): SequenceNodeAssets 
     sequenceNode5: `${basePath}/node_5.png`,
     sequenceNode6: `${basePath}/node_6.png`
   }
-}
-
-export function getRarityColor(rarity: Rarity) {
-  return rarity === 5 ? "rarity-5" : "rarity-4";
 }
 
 /**

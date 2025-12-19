@@ -9,12 +9,14 @@ import {
   InputGroupAddon
 } from "@/components/ui/input-group"
 
+import FilterDialog from "@/components/filter-dialog"
 import Image from "next/image"
 import Link from "next/link"
 
 import data from "@/data/resonators/index.json"
 import type { Resonator } from "@/types/resonator"
-import { getResonatorAssets, getRarityColor } from "@/utils/resonator-assets"
+import { getResonatorAssets } from "@/utils/resonator-assets"
+import { getRarityColor } from "@/lib/color-utils"
 import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 
@@ -34,16 +36,20 @@ export default function ResonatorsPage() {
           <p className="text-sm text-muted-foreground sm:text-base md:text-lg">Browse all Resonators in Wuthering Waves</p>
         </div>
 
-        <InputGroup>
-          <InputGroupAddon>
-            <Search className="size-4" />
-          </InputGroupAddon>
-          <InputGroupInput
-            placeholder="Search Resonators..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </InputGroup>
+        <div className="flex gap-2">
+          <InputGroup>
+            <InputGroupAddon>
+              <Search className="size-4" />
+            </InputGroupAddon>
+            <InputGroupInput
+              placeholder="Search Resonators..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </InputGroup>
+
+          <FilterDialog />
+        </div>
       </section>
 
       <section className="container">
