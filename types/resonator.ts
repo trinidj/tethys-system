@@ -49,7 +49,7 @@ export interface SequenceNode {
 }
 
 export interface ResonatorAssets {
-  image: string;
+  icon: string;
   sprite: string;
   splashArt: string;
   attribute: string;

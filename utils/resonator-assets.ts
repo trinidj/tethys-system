@@ -1,10 +1,11 @@
-import { 
+import type { 
   Resonator, 
   ResonatorAssets,
   WeaponType,
   StatRange,
   SequenceNodeAssets,
-  SkillAssets
+  SkillAssets,
+  Rarity
 } from "@/types/resonator";
 
 export function getResonatorAssets(resonator: Resonator): ResonatorAssets {
@@ -21,7 +22,7 @@ export function getResonatorAssets(resonator: Resonator): ResonatorAssets {
   const spriteFileName = resonator.id.startsWith("rover") ? "female_sprite.png" : "sprite.png";
 
   return {
-    image: `/assets/resonators/${resonator.rarity}_stars/${assetFolderName}/icon.png`,
+    icon: `/assets/resonators/${resonator.rarity}_stars/${assetFolderName}/icon.png`,
     sprite: `/assets/resonators/${resonator.rarity}_stars/${assetFolderName}/${spriteFileName}`,
     splashArt: `/assets/resonators/${resonator.rarity}_stars/${assetFolderName}/splash_art.png`,
     attribute: `/assets/attributes/${resonator.attribute}.png`,
@@ -65,6 +66,10 @@ export function getSequenceNodeAssets(resonator: Resonator): SequenceNodeAssets 
     sequenceNode5: `${basePath}/node_5.png`,
     sequenceNode6: `${basePath}/node_6.png`
   }
+}
+
+export function getRarityColor(rarity: Rarity) {
+  return rarity === 5 ? "rarity-5" : "rarity-4";
 }
 
 /**

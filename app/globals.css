@@ -44,13 +44,17 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-rarity-4: var(--rarity-4);
+  --color-rarity-5: var(--rarity-5);
 }
 
 :root {
-  --radius: 0.65rem;
+  --radius: 0.625rem;
   --rarity-4: oklch(0.501 0.171 314);
   --rarity-5: oklch(0.886 0.147 91.0);
-  
+  --rarity-5-comp: oklch(0.615 0.170 47.1);
+
   /* Attribute Colours */
   --electro: rgba(181, 104, 255);
   --aero: rgba(86, 255, 179);
