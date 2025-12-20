@@ -3,6 +3,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/app-sidebar";
 import NavBar from "@/components/nav-bar";
 import SearchDialog from "@/components/search-dialog";
+import ScrollToTop from "@/components/scroll-to-top";
 
 import { cookies } from "next/headers";
 
@@ -63,6 +64,7 @@ export default async function RootLayout({
               </header>
 
               <main className="m-5 lg:mx-80 lg:my-20">
+                <ScrollToTop />
                 {children}
               </main>
             </div>
