@@ -1,6 +1,3 @@
-import fs from "fs"
-import path from "path"
-
 import { Resonator } from "@/types/resonator"
 import { getResonatorAssets } from "@/utils/resonator-assets"
 
@@ -17,13 +14,11 @@ import {
 
 interface SplashArtDialogProps {
   resonator: Resonator
+  hasSplashArt: boolean
 }
 
-export default function SplashArtDialog({ resonator }: SplashArtDialogProps) {
+export default function SplashArtDialog({ resonator, hasSplashArt }: SplashArtDialogProps) {
   const assets = getResonatorAssets(resonator)
-
-  const splashArtPath = path.join(process.cwd(), "public", assets.splashArt.slice(1))
-  const hasSplashArt = fs.existsSync(splashArtPath)
 
   return (
     <Dialog>

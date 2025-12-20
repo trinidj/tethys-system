@@ -2,7 +2,6 @@ import type {
   Resonator,
   ResonatorAssets,
   WeaponType,
-  StatRange,
   SequenceNodeAssets,
   SkillAssets,
   Attribute,
@@ -69,15 +68,6 @@ export function getSequenceNodeAssets(resonator: Resonator): SequenceNodeAssets 
     sequenceNode5: `${basePath}/node_5.png`,
     sequenceNode6: `${basePath}/node_6.png`
   }
-}
-
-/**
- * Calculate stat value at a given level (1-90)
- */
-export function calculateStat(statRange: StatRange, level: number): number {
-  const { min, max } = statRange;
-  const value = min + ((level - 1) * (max - min)) / 89;
-  return Math.round(value);
 }
 
 const ATTRIBUTE_ICON_MAP: Record<Attribute, string> = {

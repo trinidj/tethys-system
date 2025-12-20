@@ -18,7 +18,7 @@ export default function NavBar() {
   const isMobile = useIsMobile()
 
   return (
-    <nav className="flex items-center justify-between w-full  lg:mx-80">
+    <nav className="flex items-center justify-between w-full lg:mx-90">
       <div className="flex items-center gap-2">
         <Button variant="ghost" size="icon">
           <Link href="/">

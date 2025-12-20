@@ -1,3 +1,6 @@
+"use client"
+
+
 import { Resonator } from "@/types/resonator"
 import { getResonatorAssets, getAttributeIcon, getCombatRoles } from "@/utils/resonator-assets"
 import { getAttributeColor } from "@/lib/color-utils"
@@ -5,6 +8,10 @@ import { getRarityColor } from "@/lib/color-utils"
 import Image from "next/image"
 import SplashArtDialog from "../splash-art-dialog"
 import CombatRolesDialog from "../combat-roles-dialog"
+import StatCard from "../stat-card"
+import { Badge } from "@/components/ui/badge"
+import { Label } from "@/components/ui/label"
+import { Separator } from "@/components/ui/separator"
 
 import {
   Card,
@@ -13,9 +20,7 @@ import {
   CardHeader,
   CardTitle
 } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Label } from "@radix-ui/react-label"
-import { Separator } from "@/components/ui/separator"
+
 import {
   Tooltip,
   TooltipContent,
@@ -25,9 +30,10 @@ import {
 
 interface ProfileSectionProps {
   resonator: Resonator
+  hasSplashArt: boolean
 }
 
-export default function Profile({ resonator }: ProfileSectionProps) {
+export default function Profile({ resonator, hasSplashArt }: ProfileSectionProps) {
   const assets = getResonatorAssets(resonator)
   const rarityColor = getRarityColor(resonator.rarity)
   const attributeIcon = getAttributeIcon(resonator.attribute)
@@ -37,30 +43,28 @@ export default function Profile({ resonator }: ProfileSectionProps) {
   return (
     <section id="profile" className="flex flex-col lg:flex-row gap-6">
       {/* Sprite */}
-      <div>
-        <Card className="p-0 gap-0 overflow-hidden">
-          <CardContent className="relative p-0">
-            <Image
-              src={assets.sprite}
-              alt={resonator.name}
-              width={450}
-              height={650}
-              quality={100}
-              className="object-cover"
-            />
+      <Card className="p-0 gap-0 overflow-hidden">
+        <CardContent className="relative p-0">
+          <Image
+            src={assets.sprite}
+            alt={resonator.name}
+            width={450}
+            height={650}
+            quality={100}
+            className="object-cover"
+          />
 
-            <div
-              className="h-15 bg-accent flex items-center justify-center border-t-2"
-              style={{
-                borderColor: `var(--${rarityColor})`,
-                boxShadow: `0 -4px 80px -2px var(--${rarityColor})`
-              }}
-            >
-              <SplashArtDialog resonator={resonator} />
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+          <div
+            className="h-15 bg-accent flex items-center justify-center border-t-2"
+            style={{
+              borderColor: `var(--${rarityColor})`,
+              boxShadow: `0 -4px 80px -2px var(--${rarityColor})`
+            }}
+          >
+            <SplashArtDialog resonator={resonator} hasSplashArt={hasSplashArt} />
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Stats */}
       <div className="flex flex-1 flex-col gap-6">
@@ -117,7 +121,7 @@ export default function Profile({ resonator }: ProfileSectionProps) {
             </div>
           </CardHeader>
           <Separator />
-          <CardContent className="flex justify-center px-0 lg:justify-between">
+          <CardContent className="flex flex-col justify-center items-center gap-2 px-0 lg:justify-between lg:flex-row">
             {combatRoles.length > 0 && (
               <div className="flex flex-wrap gap-1">
                 {combatRoles.map((role) => (
@@ -147,6 +151,8 @@ export default function Profile({ resonator }: ProfileSectionProps) {
             <CombatRolesDialog resonator={resonator} />
           </CardContent>
         </Card>
+
+        <StatCard resonator={resonator} />
       </div>
     </section >
   )
