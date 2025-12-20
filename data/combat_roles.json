@@ -1,0 +1,148 @@
+{
+  "combat_roles": [
+    {
+      "name": "Aero DMG Amplification",
+      "description": "Provides Aero DMG Amplification for a specific teammate"
+    },
+    {
+      "name": "Aero Erosion",
+      "description": "Utilize Aero Erosion for combat advantage"
+    },
+    {
+      "name": "Basic Attack Damage",
+      "description": "Deal higher Basic Attack DMG"
+    },
+    {
+      "name": "Basic Attack DMG Amplification",
+      "description": "Provides Basic Attack DMG Amplification for a specific teammate"
+    },
+    {
+      "name": "Concerto Efficiency",
+      "description": "Quick concerto energy regeneration"
+    },
+    {
+      "name": "Coordinated Attack",
+      "description": "Excel at Coordinated Attacks"
+    },
+    {
+      "name": "Coordinated Attack DMG Amplification",
+      "description": "Provides Coordinated Attack DMG Amplification for a specific Resonator in the team"
+    },
+    {
+      "name": "DMG Amplification",
+      "description": "Provides DMG Amplification for a specific teammate"
+    },
+    {
+      "name": "Echo Skill DMG Amplification",
+      "description": "Provides Echo Skill DMG Amplification for a specific Resonator in the team"
+    },
+    {
+      "name": "Electro DMG Amplification",
+      "description": "Provides Electro DMG Amplification for a specific teammate"
+    },
+    {
+      "name": "Electro Flare",
+      "description": "Utilize Electro Flare for combat advantage"
+    },
+    {
+      "name": "Fusion Burst",
+      "description": "Utilize Fusion Burst for combat advantage"
+    },
+    {
+      "name": "Fusion DMG Amplification",
+      "description": "Provides Fusion DMG Amplification for a specific teammate"
+    },
+    {
+      "name": "Glacio Chafe",
+      "description": "Utilize Glacio Chafe for combat advantage"
+    },
+    {
+      "name": "Glacio DMG Amplification",
+      "description": "Provides Glacio DMG Amplification for a specific teammate"
+    },
+    {
+      "name": "Havoc Bane",
+      "description": "Utilize Havoc Bane for combat advantage"
+    },
+    {
+      "name": "Havoc DMG Amplification",
+      "description": "Provides Havoc DMG Amplification for a specific teammate"
+    },
+    {
+      "name": "Heavy Attack Damage",
+      "description": "Deal higher Heavy Attack DMG"
+    },
+    {
+      "name": "Heavy Attack DMG Amplification",
+      "description": "Provides Heavy Attack DMG Amplification for a specific teammate"
+    },
+    {
+      "name": "Interruption Resistance Boost",
+      "description": "Boost the interruption resistance of a specific teammate"
+    },
+    {
+      "name": "Main Damage Dealer",
+      "description": "Powerful damage dealer"
+    },
+    {
+      "name": "Resonance Liberation Damage",
+      "description": "Deal higher Resonance Liberation DMG"
+    },
+    {
+      "name": "Resonance Liberation DMG Amplification",
+      "description": "Provides Resonance Liberation DMG Amplification for a specific teammate"
+    },
+    {
+      "name": "Resonance Liberation Regeneration",
+      "description": "Restore the Resonance Energy of a specific teammate"
+    },
+    {
+      "name": "Resonance Skill Damage",
+      "description": "Deal higher Resonance Skill DMG"
+    },
+    {
+      "name": "Resonance Skill DMG Amplification",
+      "description": "Provides Resonance Skill DMG Amplification for a specific teammate"
+    },
+    {
+      "name": "Spectro DMG Amplification",
+      "description": "Provides Spectro DMG Amplification for a specific teammate"
+    },
+    {
+      "name": "Spectro Frazzle",
+      "description": "Utilize Spectro Frazzle for combat advantage"
+    },
+    {
+      "name": "Stagnation",
+      "description": "Slow down targets within a certain range"
+    },
+    {
+      "name": "Support and Healer",
+      "description": "Improve team survivability"
+    },
+    {
+      "name": "Traction",
+      "description": "Pull targets in range towards a specific position"
+    },
+    {
+      "name": "Vibration Strength Reduction",
+      "description": "Reduce the Vibration Strength of targets more effectively"
+    },
+    {
+      "name": "Tune Rupture Response",
+      "description": "Deals Tune Rupture DMG to targets"
+    },
+    {
+      "name": "Tune Break Boost",
+      "description": "Provides additional Tune Break Boost for a specific Resonator in the team"
+    },
+    {
+      "name": "Tune Strain Response",
+      "description": "Gains total DMG increase from Tune Break Boost"
+    },
+    {
+      "name": "Off-Tune Build up Efficiency",
+      "description": "Boosts the Off-Tune Buildup Rate for a specific Resonator in the team"
+    }
+  ]
+}

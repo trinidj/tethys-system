@@ -1,13 +1,27 @@
 import { Resonator } from "@/types/resonator"
-import { getResonatorAssets } from "@/utils/resonator-assets"
+import { getResonatorAssets, getAttributeIcon, getCombatRoles } from "@/utils/resonator-assets"
+import { getAttributeColor } from "@/lib/color-utils"
 import { getRarityColor } from "@/lib/color-utils"
 import Image from "next/image"
 import SplashArtDialog from "../splash-art-dialog"
 
+
 import {
   Card,
-  CardContent
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
 } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Label } from "@radix-ui/react-label"
+import { Separator } from "@/components/ui/separator"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 interface ProfileSectionProps {
   resonator: Resonator
@@ -16,18 +30,21 @@ interface ProfileSectionProps {
 export default function Profile({ resonator }: ProfileSectionProps) {
   const assets = getResonatorAssets(resonator)
   const rarityColor = getRarityColor(resonator.rarity)
+  const attributeIcon = getAttributeIcon(resonator.attribute)
+  const attributeColor = getAttributeColor(resonator.attribute)
+  const combatRoles = getCombatRoles(resonator)
 
   return (
-    <section id="profile" className="flex lg:flex-row">
+    <section id="profile" className="flex flex-col lg:flex-row gap-6">
       {/* Sprite */}
       <div>
-        <Card className="p-0 gap-0 overflow-hidden border-transparent">
+        <Card className="p-0 gap-0 overflow-hidden">
           <CardContent className="relative p-0">
             <Image
               src={assets.sprite}
               alt={resonator.name}
-              width={400}
-              height={600}
+              width={450}
+              height={650}
               quality={100}
               className="object-cover"
             />
@@ -46,9 +63,88 @@ export default function Profile({ resonator }: ProfileSectionProps) {
       </div>
 
       {/* Stats */}
-      <div>
+      <div className="flex flex-1 flex-col gap-6">
+        <Card className="p-6">
+          <CardHeader className="p-0">
+            <div className="flex flex-col">
+              <div className="flex flex-col items-center gap-4 lg:flex-row">
+                <div
+                  className="border-2 flex items-center justify-center rounded-xl"
+                  style={{
+                    borderColor: `var(--${attributeColor})`,
+                  }}
+                >
+                  <Image
+                    src={attributeIcon}
+                    alt={resonator.attribute}
+                    width={128}
+                    height={128}
+                    quality={100}
+                    className="size-20"
+                  />
+                </div>
 
+                <div className="flex flex-col gap-4 justify-center lg:gap-1">
+                  <div className="text-center lg:text-left">
+                    <CardTitle className="font-bold text-3xl">{resonator.name}</CardTitle>
+                    <CardDescription className="text-muted-foreground font-medium text-sm">{resonator.description}</CardDescription>
+                  </div>
+
+                  <div className="flex gap-2 items-center justify-center">
+                    <Badge variant="secondary" className="h-8">
+                      <Image
+                        src={`/assets/rarity/${resonator.rarity}_star.png`}
+                        alt={`${resonator.rarity}`}
+                        width={90}
+                        height={40}
+                        quality={100}
+                      />
+                    </Badge>
+
+                    <Badge variant="secondary" className="h-8">
+                      <Image
+                        src={assets.weaponType}
+                        alt={assets.weaponType}
+                        width={20}
+                        height={40}
+                        quality={100}
+                      />
+                      <Label className="text-sm">{resonator.weaponType}</Label>
+                    </Badge>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </CardHeader>
+          <Separator />
+          <CardContent className="flex justify-center px-0 lg:justify-start">
+            {combatRoles.length > 0 && (
+              <div className="flex flex-wrap gap-1">
+                {combatRoles.map((role) => (
+                  <TooltipProvider key={role.name}>
+                    <Tooltip delayDuration={300}>
+                      <TooltipTrigger asChild>
+                        <div className="rounded-xl p-1 hover:bg-accent transition-colors">
+                          <Image
+                            src={role.icon}
+                            alt={role.name}
+                            width={32}
+                            height={32}
+                            quality={100}
+                          />
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p className="font-semibold text-xs">{role.name}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
       </div>
-    </section>
+    </section >
   )
 }

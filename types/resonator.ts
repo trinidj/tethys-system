@@ -2,6 +2,12 @@ export type Attribute = "Fusion" | "Aero" | "Glacio" | "Havoc" | "Electro" | "Sp
 export type WeaponType = "Pistol" | "Sword" | "Broadblade" | "Rectifier" | "Gauntlet";
 export type Rarity = 4 | 5;
 
+export interface CombatRole {
+  name: string;
+  description: string;
+  icon: string;
+}
+
 export interface StatRange {
   min: number;
   max: number;
@@ -26,7 +32,7 @@ export interface SkillAscensionPhase {
 
 export interface SkillScaling {
   level: number;
-  [key: string]: number; 
+  [key: string]: number;
 }
 
 export interface Skill {

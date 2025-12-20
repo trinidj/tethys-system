@@ -1,12 +1,15 @@
-import type { 
-  Resonator, 
+import type {
+  Resonator,
   ResonatorAssets,
   WeaponType,
   StatRange,
   SequenceNodeAssets,
   SkillAssets,
-  Attribute
+  Attribute,
+  CombatRole
 } from "@/types/resonator";
+
+import combatRoles from "@/data/combat_roles.json"
 
 export function getResonatorAssets(resonator: Resonator): ResonatorAssets {
   const weaponIconMap: Record<WeaponType, string> = {
@@ -88,4 +91,25 @@ const ATTRIBUTE_ICON_MAP: Record<Attribute, string> = {
 
 export function getAttributeIcon(attribute: Attribute) {
   return ATTRIBUTE_ICON_MAP[attribute]
+}
+
+export function getCombatRoles(resonator: Resonator): CombatRole[] {
+  if (!resonator.combatRoles) return [];
+
+  const roles = combatRoles.combat_roles;
+  return resonator.combatRoles.map(roleName => {
+    const roleData = roles.find(r => r.name === roleName);
+    if (!roleData) return undefined;
+
+    // Convert name to snake_case for filename
+    // e.g. "Basic Attack DMG Amplification" -> "basic_attack_dmg_amplification"
+    const fileName = roleData.name
+      .toLowerCase()
+      .replace(/ /g, "_");
+
+    return {
+      ...roleData,
+      icon: `/assets/combat_roles/${fileName}.png`
+    };
+  }).filter((role): role is CombatRole => role !== undefined);
 }
