@@ -3,9 +3,9 @@ import { getResonatorAssets, getAttributeIcon, getCombatRoles } from "@/utils/re
 import { getAttributeColor } from "@/lib/color-utils"
 import { getRarityColor } from "@/lib/color-utils"
 import Image from "next/image"
-import SplashArtDialog from "../splash-art-dialog"
-import CombatRolesDialog from "../combat-roles-dialog"
-import StatCard from "../stat-card"
+import SplashArtDialog from "../_components/splash-art-dialog"
+import CombatRolesDialog from "../_components/combat-roles-dialog"
+import StatCard from "../_components/stat-card"
 import { Badge } from "@/components/ui/badge"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
@@ -164,28 +164,32 @@ export default function Profile({ resonator, hasSplashArt, ascensionMaterials }:
             <CardTitle className="text-xl">Ascension</CardTitle>
           </CardHeader>
           <CardContent className="px-0">
-            <div className="grid grid-cols-7 gap-4">
-              {totalMaterials.map((material) => (
-                <Card key={material.name} className="p-0 overflow-hidden">
-                  <CardContent className="px-0">
-                    <div className="flex items-center justify-center">
-                      <Image
-                        src={`${getMaterialAssets(material.name, material.type)}`}
-                        alt={material.name}
-                        width={74}
-                        height={74}
-                        quality={100}
-                        className="scale-80"
-                      />
-                    </div>
+            {totalMaterials.map((material) => (
+              <Card key={material.name} className="p-0 overflow-hidden">
+                <CardContent className="px-0">
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src={`${getMaterialAssets(material.name, material.type)}`}
+                      alt={material.name}
+                      width={74}
+                      height={74}
+                      quality={100}
+                      className="scale-80"
+                    />
+                  </div>
 
-                    <div className="bg-accent h-6 flex items-center justify-center border-t-2 border-rarity-5">
-                      <CardTitle>{material.amount}</CardTitle>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                  <div className="bg-accent h-6 flex items-center justify-center border-t-2 border-rarity-5">
+                    <CardTitle>{material.amount}</CardTitle>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+
+            {totalMaterials.length === 0 && (
+              <p className="text-center text-muted-foreground py-4">
+                Ascension Materials Unavailable
+              </p>
+            )}
           </CardContent>
         </Card>
       </div>

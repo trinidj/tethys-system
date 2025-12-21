@@ -42,7 +42,6 @@ export function getResonatorAscension(resonator: string): AscensionMaterials[] {
     const filePath = path.join(process.cwd(), 'data', 'resonators', folderName, 'ascension.json');
 
     if (!fs.existsSync(filePath)) {
-      console.error(`Ascension file not found: ${filePath}`);
       return [];
     }
 
