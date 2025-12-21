@@ -14,6 +14,7 @@ import { getMaterialAssets } from "@/utils/resonator-assets"
 import {
   Card,
   CardContent,
+  CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 
@@ -43,32 +44,36 @@ export default function Profile({ resonator, hasSplashArt, ascensionMaterials }:
   )
 
   return (
-    <section id="profile" className="flex flex-col lg:flex-row gap-8">
+    <section id="profile" className="flex h-[675px] flex-col lg:flex-row gap-8">
       {/* Sprite */}
-      <Card className="p-0 gap-0 overflow-hidden">
-        <CardContent className="relative p-0">
-          <Image
-            src={assets.sprite}
-            alt={resonator.name}
-            width={450}
-            height={650}
-            quality={100}
-            className="object-cover"
-          />
+      <Card className="h-full w-full lg:w-[400px] p-0 overflow-hidden shadow-none bg-linear-to-t from-background to-card/100">
+        <CardContent className="h-full p-0">
+          <div className="flex flex-col h-full">
+            <div className="flex-1 flex overflow-hidden">
+              <Image
+                src={assets.sprite}
+                alt={resonator.name}
+                width={696}
+                height={960}
+                quality={100}
+                priority
+                className="object-cover w-full h-full"
+              />
+            </div>
 
-          <div
-            className="h-15 bg-accent flex items-center justify-center border-t-2"
-            style={{
-              borderColor: `var(--${rarityColor})`,
-              boxShadow: `0 -4px 80px -2px var(--${rarityColor})`
-            }}
-          >
-            <SplashArtDialog resonator={resonator} hasSplashArt={hasSplashArt} />
+            <div
+              className="bg-card flex justify-center h-14 items-center border-t-2"
+              style={{
+                borderColor: `var(--${rarityColor})`,
+                boxShadow: `0 -4px 100px -2px var(--${rarityColor})`
+              }}
+            >
+              <SplashArtDialog resonator={resonator} hasSplashArt={hasSplashArt} />
+            </div>
           </div>
         </CardContent>
       </Card>
 
-      {/* Stats */}
       <div className="flex flex-1 flex-col gap-6">
         <header className="flex flex-col items-center gap-4 lg:flex-row lg:justify-between">
           <div className="flex gap-4">
@@ -120,10 +125,6 @@ export default function Profile({ resonator, hasSplashArt, ascensionMaterials }:
 
         <Separator />
 
-        {/* Stats */}
-        <StatCard resonator={resonator} />
-
-        {/* Combat Roles */}
         <Card className="p-2">
           <CardContent className="flex flex-col justify-center items-center gap-2 px-0 lg:justify-between lg:flex-row">
             {combatRoles.length > 0 && (
@@ -156,15 +157,19 @@ export default function Profile({ resonator, hasSplashArt, ascensionMaterials }:
           </CardContent>
         </Card>
 
-        {/* Ascension Materials */}
+        <StatCard resonator={resonator} />
+
         <Card className="p-6">
+          <CardHeader className="px-0">
+            <CardTitle className="text-xl">Ascension</CardTitle>
+          </CardHeader>
           <CardContent className="px-0">
             <div className="grid grid-cols-7 gap-4">
               {totalMaterials.map((material) => (
                 <Card key={material.name} className="p-0 overflow-hidden">
                   <CardContent className="px-0">
                     <div className="flex items-center justify-center">
-                      <Image 
+                      <Image
                         src={`${getMaterialAssets(material.name, material.type)}`}
                         alt={material.name}
                         width={74}
