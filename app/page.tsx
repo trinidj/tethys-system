@@ -14,9 +14,9 @@ export default function Home() {
           />
 
           <div className="flex flex-col gap-6">
-            <h1 className="text-3xl font-bold text-center tracking-wide sm:text-4xl md:text-5xl">Tethys System</h1>
+            <h1 className="text-3xl font-bold text-center sm:text-4xl md:text-5xl">The Tethys System</h1>
             <p className="max-w-3xl text-base text-muted-foreground sm:text-lg md:text-lg">
-              Phrolova is an unofficial Wuthering Waves database and tools site,
+              The Tethys System is an unofficial Wuthering Waves database and tools site,
               offering clear stats, materials, and builds.
             </p>
           </div>
