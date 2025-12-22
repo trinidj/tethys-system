@@ -20,7 +20,7 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Phrolova Project",
+  title: "Tethys System",
   description: "Wuthering Waves Database",
 };
 

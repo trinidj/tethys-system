@@ -42,7 +42,7 @@ interface ProfileSectionProps {
 const CombatRolesDialog = dynamic(() => import("../_components/combat-roles-dialog"), {
   ssr: false
 })
-const SplashArtDialog = dynamic(() => import ("../_components/splash-art-dialog"), {
+const SplashArtDialog = dynamic(() => import("../_components/splash-art-dialog"), {
   ssr: false
 })
 
