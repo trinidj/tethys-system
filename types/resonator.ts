@@ -115,4 +115,5 @@ export interface Resonator {
   };
   sequenceNodes?: SequenceNode[];
   ascension?: AscensionMaterials[];
+  variants?: Array<Partial<Resonator> & { id: string }>;
 }

@@ -40,9 +40,10 @@ export function getResonatorBySlug(slug: string): Resonator | undefined {
   return undefined;
 }
 
-export function getResonatorAscension(resonator: string): AscensionMaterials[] {
+export function getResonatorAscension(resonatorId: string): AscensionMaterials[] {
   try {
-    const folderName = resonator.toLowerCase().replace(/\s+/g, '-');
+    const isRover = resonatorId.startsWith("rover");
+    const folderName = isRover ? "rover" : resonatorId.toLowerCase().replace(/\s+/g, '-');
     const filePath = path.join(process.cwd(), 'data', 'resonators', folderName, 'ascension.json');
 
     if (!fs.existsSync(filePath)) {
@@ -80,25 +81,32 @@ export function getResonatorAscension(resonator: string): AscensionMaterials[] {
 
     return materials;
   } catch (error) {
-    console.error(`Error loading materials for ${resonator}:`, error);
+    console.error(`Error loading materials for ${resonatorId}:`, error);
     return [];
   }
 }
 
-export function parseTalentsMarkdown(resonator: string): string {
+export function parseTalentsMarkdown(resonatorId: string, attribute?: string): string {
   try {
-    const folderName = resonator.toLowerCase().replace(/\s+/g, '-')
-    const filePath = path.join(process.cwd(), 'data', 'resonators', folderName, 'talents.md')
+    const isRover = resonatorId.startsWith("rover");
+    const folderName = isRover ? "rover" : resonatorId.toLowerCase().replace(/\s+/g, '-');
+    
+    let filePath: string;
+    if (isRover && attribute) {
+      filePath = path.join(process.cwd(), 'data', 'resonators', folderName, attribute.toLowerCase(), 'talents.md');
+    } else {
+      filePath = path.join(process.cwd(), 'data', 'resonators', folderName, 'talents.md');
+    }
 
     if (!fs.existsSync(filePath)) {
       return "";
     }
 
-    const fileContent = fs.readFileSync(filePath, 'utf-8')
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
 
-    return marked.parse(fileContent) as string
+    return marked.parse(fileContent) as string;
     
   } catch (error) {
-    return ""
+    return "";
   }
 }

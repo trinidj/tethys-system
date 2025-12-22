@@ -15,7 +15,12 @@ import type { Resonator } from "@/types/resonator"
 import { useResonatorFilters } from "@/hooks/use-resonator-filter"
 
 export default function ResonatorsPage() {
-  const resonators = data.resonators as Resonator[]
+  const resonators = (data.resonators as Resonator[]).flatMap(r => {
+    if (r.variants && r.variants.length > 0) {
+      return r.variants.map(v => ({ ...r, ...v }))
+    }
+    return r
+  })
   const { searchQuery, setSearchQuery, filters, setFilters, filteredResonators } = useResonatorFilters(resonators)
 
   return (
