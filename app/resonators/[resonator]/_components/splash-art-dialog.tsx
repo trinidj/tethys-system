@@ -15,10 +15,11 @@ import {
 interface SplashArtDialogProps {
   resonator: Resonator
   hasSplashArt: boolean
+  gender?: "male" | "female"
 }
 
-export default function SplashArtDialog({ resonator, hasSplashArt }: SplashArtDialogProps) {
-  const assets = getResonatorAssets(resonator)
+export default function SplashArtDialog({ resonator, hasSplashArt, gender }: SplashArtDialogProps) {
+  const assets = getResonatorAssets(resonator, gender)
 
   return (
     <Dialog>

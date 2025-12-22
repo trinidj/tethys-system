@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import type { AscensionMaterials, Resonator } from "@/types/resonator"
 import { getResonatorAssets, getAttributeIcon, getCombatRoles } from "@/utils/resonator-assets"
 import { getAttributeColor, getResonatorRarityColor, getDevelopmentMaterialRarityColor } from "@/lib/color-utils"
@@ -9,6 +12,7 @@ import { Badge } from "@/components/ui/badge"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { getMaterialAssets } from "@/utils/development_material_assets"
+import { motion, AnimatePresence } from "motion/react"
 
 import {
   Card,
@@ -24,6 +28,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs"
+
 interface ProfileSectionProps {
   resonator: Resonator
   hasSplashArt: boolean
@@ -31,7 +41,8 @@ interface ProfileSectionProps {
 }
 
 export default function Profile({ resonator, hasSplashArt, ascensionMaterials }: ProfileSectionProps) {
-  const assets = getResonatorAssets(resonator)
+  const [gender, setGender] = useState<"male" | "female">("female")
+  const assets = getResonatorAssets(resonator, gender)
   const resonatorRarityColor = getResonatorRarityColor(resonator.rarity)
   const attributeIcon = getAttributeIcon(resonator.attribute)
   const attributeColor = getAttributeColor(resonator.attribute)
@@ -42,32 +53,74 @@ export default function Profile({ resonator, hasSplashArt, ascensionMaterials }:
     }))
   )
 
+  const isRover = resonator.id.startsWith("rover")
+
   return (
     <section id="profile" className="flex h-[675px] flex-col lg:flex-row gap-14">
       {/* Sprite */}
-      <Card className="h-full w-full lg:w-[400px] p-0 overflow-hidden shadow-none bg-linear-to-t from-background to-card">
+      <Card className="relative h-full w-full lg:w-[400px] p-0 overflow-hidden shadow-none bg-linear-to-t from-background to-card">
         <CardContent className="h-full p-0">
           <div className="flex flex-col h-full">
-            <div className="flex-1 flex overflow-hidden">
-              <Image
-                src={assets.sprite}
-                alt={resonator.name}
-                width={696}
-                height={960}
-                quality={100}
-                priority
-                className="object-cover w-full h-full"
-              />
+            <div className="flex-1 flex overflow-hidden relative">
+              {isRover ? (
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={gender}
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 100 }}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 300, 
+                      damping: 30 
+                    }}
+                    className="absolute inset-0 w-full h-full"
+                  >
+                    <Image
+                      src={assets.sprite}
+                      alt={resonator.name}
+                      width={696}
+                      height={960}
+                      quality={100}
+                      priority
+                      className="object-cover w-full h-full"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              ) : (
+                <div className="absolute inset-0 w-full h-full">
+                  <Image
+                    src={assets.sprite}
+                    alt={resonator.name}
+                    width={696}
+                    height={960}
+                    quality={100}
+                    priority
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+              )}
+
+              {isRover && (
+                <div className="absolute top-2 left-2">
+                  <Tabs value={gender} onValueChange={(value) => setGender(value as "male" | "female")}>
+                    <TabsList className="grid w-full grid-cols-2">
+                      <TabsTrigger value="male">Male</TabsTrigger>
+                      <TabsTrigger value="female">Female</TabsTrigger>
+                    </TabsList>
+                  </Tabs>
+                </div>
+              )}
             </div>
 
             <div
-              className="bg-card flex justify-center h-14 items-center border-t-2"
+              className={`bg-card flex ${isRover ? "flex-col" : "justify-center"} items-center border-t-2 p-2 gap-2`}
               style={{
                 borderColor: `var(--${resonatorRarityColor})`,
                 boxShadow: `0 -4px 100px -2px var(--${resonatorRarityColor})`
               }}
             >
-              <SplashArtDialog resonator={resonator} hasSplashArt={hasSplashArt} />
+              <SplashArtDialog resonator={resonator} hasSplashArt={hasSplashArt} gender={gender} />
             </div>
           </div>
         </CardContent>
@@ -92,10 +145,18 @@ export default function Profile({ resonator, hasSplashArt, ascensionMaterials }:
               />
             </div>
 
-            <div className="text-center lg:text-left">
-              <h1 className="font-bold text-3xl">{resonator.name}</h1>
-              <span className="text-muted-foreground font-medium text-sm">{resonator.description}</span>
-            </div>
+            {!isRover && (
+              <div className="text-center lg:text-left">
+                <h1 className="font-bold text-3xl">{resonator.name}</h1>
+                <span className="text-muted-foreground font-medium text-sm">{resonator.description}</span>
+              </div>
+            )}
+
+            {isRover && (
+              <div className="text-center flex items-center lg:text-left">
+                <h1 className="font-bold text-3xl">{resonator.name}</h1>
+              </div>
+            )} 
           </div>
 
           <div className="flex gap-2 items-center justify-center">
