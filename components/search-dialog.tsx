@@ -3,7 +3,6 @@
 import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Search } from "lucide-react"
@@ -24,7 +23,6 @@ import {
 
 import {
   Item,
-  ItemActions,
   ItemContent,
   ItemDescription,
   ItemMedia,
@@ -32,7 +30,7 @@ import {
 } from "@/components/ui/item"
 
 import resonatorsIndex from "@/data/resonators/index.json"
-import { getResonatorAssets, getAttributeIcon } from "@/utils/resonator-assets"
+import { getResonatorAssets } from "@/utils/resonator-assets"
 import type { Resonator } from "@/types/resonator"
 
 export default function SearchDialog() {
@@ -94,7 +92,6 @@ export default function SearchDialog() {
 
               {filteredResonators.map((resonator) => {
                 const assets = getResonatorAssets(resonator)
-                const attributeIcon = getAttributeIcon(resonator.attribute)
                 
                 return (
                   <Link
@@ -102,7 +99,7 @@ export default function SearchDialog() {
                     href={`/resonators/${resonator.id}`}
                     onClick={() => setOpen(false)}
                   >
-                    <Item variant="muted">
+                    <Item className="hover:bg-accent/50">
                       <ItemMedia>
                         <div className="overflow-hidden border-2 border-primary rounded-xl">
                           <Image 
@@ -116,6 +113,7 @@ export default function SearchDialog() {
                       </ItemMedia>
                       <ItemContent>
                         <ItemTitle>{resonator.name}</ItemTitle>
+                        <ItemDescription>{resonator.description}</ItemDescription>
                       </ItemContent>
                     </Item>
                   </Link>

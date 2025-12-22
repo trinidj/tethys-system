@@ -35,7 +35,7 @@ export default function CombatRolesDialog({ resonator }: CombatRolesDialogProps)
           <Ellipsis />
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="border-4">
         <DialogHeader>
           <DialogTitle>Combat Roles</DialogTitle>
         </DialogHeader>
