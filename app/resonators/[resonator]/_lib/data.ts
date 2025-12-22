@@ -40,6 +40,16 @@ export function getResonatorBySlug(slug: string): Resonator | undefined {
   return undefined;
 }
 
+export function getAllResonatorSlugs(): string[] {
+  return resonators.flatMap(r => {
+    if (r.variants && r.variants.length > 0) {
+      return r.variants.map(v => v.id)
+    }
+
+    return [r.id]
+  })
+}
+
 export function getResonatorAscension(resonatorId: string): AscensionMaterials[] {
   try {
     const isRover = resonatorId.startsWith("rover");
