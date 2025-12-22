@@ -39,7 +39,7 @@ export function ResonatorCard({ resonator }: { resonator: Resonator }) {
             alt={resonator.name}
             width={256}
             height={256}
-            quality={100}
+            sizes="(max-width: 640px) 50vw, (max-width: 1024) 25vw, 150px"
             className="object-contain overflow-hidden hover:scale-110 transition-transform will-change-transform duration-300"
           />
 
@@ -49,7 +49,6 @@ export function ResonatorCard({ resonator }: { resonator: Resonator }) {
               alt={resonator.attribute}
               width={28}
               height={28}
-              quality={100}
               className="object-contain"
             />
           </div>

@@ -81,8 +81,8 @@ export default function Profile({ resonator, hasSplashArt, ascensionMaterials }:
                       alt={resonator.name}
                       width={696}
                       height={960}
-                      quality={100}
                       priority
+                      sizes="(max-width: 1024px) 100vw, 400px"
                       className="object-cover w-full h-full"
                     />
                   </motion.div>
@@ -94,8 +94,8 @@ export default function Profile({ resonator, hasSplashArt, ascensionMaterials }:
                     alt={resonator.name}
                     width={696}
                     height={960}
-                    quality={100}
                     priority
+                    sizes="(max-width: 1024px) 100vw, 400px"
                     className="object-cover w-full h-full"
                   />
                 </div>
@@ -140,7 +140,6 @@ export default function Profile({ resonator, hasSplashArt, ascensionMaterials }:
                 alt={resonator.attribute}
                 width={128}
                 height={128}
-                quality={100}
                 className="size-15"
               />
             </div>
@@ -166,7 +165,6 @@ export default function Profile({ resonator, hasSplashArt, ascensionMaterials }:
                 alt={`${resonator.rarity}`}
                 width={90}
                 height={40}
-                quality={100}
               />
             </Badge>
 
@@ -176,7 +174,6 @@ export default function Profile({ resonator, hasSplashArt, ascensionMaterials }:
                 alt={assets.weaponType}
                 width={20}
                 height={40}
-                quality={100}
               />
               <Label className="text-sm">{resonator.weaponType}</Label>
             </Badge>
