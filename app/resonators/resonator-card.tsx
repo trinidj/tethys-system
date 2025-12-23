@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Resonator } from "@/types/resonator";
 import { getResonatorAssets, getAttributeIcon } from "@/utils/resonator-assets";
-import { getResonatorRarityColor } from "@/lib/color-utils";
+import { getRarityColor } from "@/lib/color-utils";
 import { Badge } from "@/components/ui/badge";
 
 import {
@@ -17,7 +17,7 @@ import {
 
 export function ResonatorCard({ resonator }: { resonator: Resonator }) {
   const assets = getResonatorAssets(resonator)
-  const rarityColor = getResonatorRarityColor(resonator.rarity)
+  const rarityColor = getRarityColor(resonator.rarity)
 
   const hasDetailData = Boolean(
     resonator.stats?.hp &&

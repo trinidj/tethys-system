@@ -14,6 +14,7 @@ export interface WeaponAscensionMaterials {
 
 export interface WeaponAssets {
   icon: string;
+  weaponType: string;
 }
 
 export interface StatRange {
@@ -27,7 +28,6 @@ export interface Weapon {
   rarity: WeaponRarity;
   weaponType: WeaponType;
   isNew?: boolean;
-  description: string;
   stats: {
     atk: StatRange;
     secondaryStat: {

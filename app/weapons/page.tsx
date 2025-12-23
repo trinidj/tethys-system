@@ -9,7 +9,15 @@ import {
   InputGroupAddon
 } from "@/components/ui/input-group"
 
+import { WeaponCard } from "@/app/weapons/weapon-card"
+import data from "@/data/weapons/index.json"
+import type { Weapon } from "@/types/weapon"
+import { useWeaponFilters } from "@/hooks/use-weapon-filter"
+
 export default function WeaponsPage() {
+  const weapons = (data.weapons as Weapon[])
+
+  const { searchQuery, setSearchQuery, filters, setFilters, filteredWeapons } = useWeaponFilters(weapons)
   const WeaponFilterDialog = dynamic(() => import("./weapon-filter-dialog"), {
     ssr: false
   })
@@ -29,15 +37,27 @@ export default function WeaponsPage() {
             </InputGroupAddon>
             <InputGroupInput 
               placeholder="Search Weapons..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
           </InputGroup>
 
-          <WeaponFilterDialog />
+          <WeaponFilterDialog value={filters} onApply={setFilters} />
         </div>
       </section>
 
       <section className="container">
-        
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
+          {filteredWeapons.map((weapon) => (
+            <WeaponCard key={weapon.id} weapon={weapon} />
+          ))}
+
+          {filteredWeapons.length === 0 && (
+            <div className="col-span-full py-12 text-center text-muted-foreground">
+              No Weapons found
+            </div>
+          )}
+        </div>
       </section>
     </div>
   )

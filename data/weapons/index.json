@@ -1,0 +1,18 @@
+{
+  "weapons": [
+    {
+      "id": "training_sword",
+      "name": "Training Sword",
+      "rarity": 1,
+      "weaponType": "Sword",
+      "isNew": false,
+      "stats": {
+        "atk": { "min": 20, "max": 250 },
+        "secondaryStat": {
+          "name": "atk",
+          "value": { "min": 2.5, "max": 11.4 }
+        } 
+      }
+    }
+  ]
+}

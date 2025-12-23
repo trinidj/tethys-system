@@ -1,10 +1,14 @@
 import { ResonatorRarity, Attribute } from "@/types/resonator";
+import { WeaponRarity } from "@/types/weapon";
 import { DevelopmentMaterialRarity } from "@/types/development-material";
 
-export function getResonatorRarityColor(rarity: ResonatorRarity) {
+export function getRarityColor(rarity: ResonatorRarity | WeaponRarity) {
   const colors = {
     5: "rarity-5",
-    4: "rarity-4"
+    4: "rarity-4",
+    3: "rarity-3",
+    2: "rarity-2",
+    1: "rarity-1"
   }
 
   return colors[rarity]

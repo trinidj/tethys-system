@@ -4,7 +4,7 @@ import { useState } from "react"
 import dynamic from "next/dynamic"
 import type { AscensionMaterials, Resonator } from "@/types/resonator"
 import { getResonatorAssets, getAttributeIcon, getCombatRoles } from "@/utils/resonator-assets"
-import { getAttributeColor, getResonatorRarityColor, getDevelopmentMaterialRarityColor, colorizeText } from "@/lib/color-utils"
+import { getAttributeColor, getRarityColor, getDevelopmentMaterialRarityColor } from "@/lib/color-utils"
 import Image from "next/image"
 import StatCard from "../_components/stat-card"
 import { Badge } from "@/components/ui/badge"
@@ -49,7 +49,7 @@ const DetailsDialog = dynamic(() => import("../_components/details-dialog"), {
 export default function Profile({ resonator, hasSplashArt, resonatorAscensionMaterials }: ProfileSectionProps) {
   const [gender, setGender] = useState<"male" | "female">("female")
   const assets = getResonatorAssets(resonator, gender)
-  const resonatorRarityColor = getResonatorRarityColor(resonator.rarity)
+  const resonatorRarityColor = getRarityColor(resonator.rarity)
   const attributeIcon = getAttributeIcon(resonator.attribute)
   const attributeColor = getAttributeColor(resonator.attribute)
   const combatRoles = getCombatRoles(resonator)
