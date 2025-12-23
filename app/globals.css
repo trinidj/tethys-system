@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -160,6 +161,38 @@
 }
 
 @layer utilities {
+  .forte-description {
+    @apply prose dark:prose-invert max-w-none;
+
+    & p {
+      @apply my-2;
+    }
+
+    & ul {
+      @apply my-2 ml-4 list-outside list-disc;
+    }
+
+    & li {
+      @apply my-1 text-muted-foreground;
+    }
+
+    & li::marker {
+      @apply text-(--attribute-glow);
+    }
+
+    & strong {
+      @apply text-(--attribute-glow) font-bold;
+    }
+
+    & hr {
+      @apply my-4 border-white/10;
+    }
+
+    & > * + * {
+      @apply mt-6;
+    }
+  }
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }

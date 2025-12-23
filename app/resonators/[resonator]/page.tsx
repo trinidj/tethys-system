@@ -1,6 +1,7 @@
 import fs from "fs"
 import path from "path"
 import Profile from "./_sections/profile-section";
+import { Forte } from "./_sections/forte-section";
 import { getResonatorAscension, getResonatorBySlug, getAllResonatorSlugs } from "@/app/resonators/[resonator]/_lib/data";
 import { getResonatorAssets } from "@/utils/resonator-assets";
  
@@ -28,12 +29,13 @@ export default async function Resonator({ params }: { params: Promise<{ resonato
   const ascensionMaterials = getResonatorAscension(resonatorData.id)
 
   return (
-    <div className="min-h-screen flex flex-col gap-25">
+    <div className="min-h-screen flex flex-col gap-35">
       <Profile
         resonator={resonatorData}
         hasSplashArt={hasSplashArt}
         ascensionMaterials={ascensionMaterials}
       />
+      <Forte resonator={resonatorData} />
     </div>
   );
 }

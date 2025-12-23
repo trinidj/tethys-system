@@ -24,28 +24,15 @@ export interface AscensionMaterials {
   materials: AscensionMaterial[];
 }
 
-export interface SkillAscensionPhase {
-  level: number;
+export interface ForteAscensionMaterials {
   materials: AscensionMaterial[];
 }
 
-export interface SkillScaling {
-  level: number;
-  [key: string]: number;
-}
-
-export interface Skill {
+export interface Forte {
   name: string;
   type: string;
   description: string;
   icon?: string;
-  scaling?: SkillScaling[];
-}
-
-export interface TalentData {
-  name: string;
-  type: string;
-  description?: string;
 }
 
 export interface SequenceNode {
@@ -70,15 +57,15 @@ export interface SequenceNodeAssets {
   sequenceNode6?: string;
 }
 
-export interface SkillAssets {
-  normalAttack?: string;
-  resonanceSkill?: string;
-  resonanceLiberation?: string;
-  forteCircuit?: string;
-  inheritSkill1?: string;
-  inheritSkill2?: string;
-  introSkill?: string;
-  outroSkill?: string
+export interface ForteAssets {
+  normalAttack: string;
+  resonanceSkill: string;
+  resonanceLiberation: string;
+  forteCircuit: string;
+  inheritSkill1: string;
+  inheritSkill2: string;
+  introSkill: string;
+  outroSkill: string;
 }
 
 export interface Resonator {
@@ -103,15 +90,15 @@ export interface Resonator {
     japanese: string;
     korean: string;
   }
-  talents?: {
-    normalAttack?: Skill;
-    resonanceSkill?: Skill;
-    resonanceLiberation?: Skill;
-    forteCircuit?: Skill;
-    introSkill?: Skill;
-    outroSkill?: Skill;
-    inheritSkill1?: Skill;
-    inheritSkill2?: Skill;
+  forte?: {
+    normalAttack?: Forte;
+    resonanceSkill?: Forte;
+    resonanceLiberation?: Forte;
+    forteCircuit?: Forte;
+    introSkill?: Forte;
+    outroSkill?: Forte;
+    inheritSkill1?: Forte;
+    inheritSkill2?: Forte;
   };
   sequenceNodes?: SequenceNode[];
   ascension?: AscensionMaterials[];

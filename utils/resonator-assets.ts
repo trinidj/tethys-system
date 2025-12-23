@@ -3,7 +3,7 @@ import type {
   ResonatorAssets,
   WeaponType,
   SequenceNodeAssets,
-  SkillAssets,
+  ForteAssets,
   Attribute,
   CombatRole
 } from "@/types/resonator";
@@ -37,7 +37,7 @@ export function getResonatorAssets(resonator: Resonator, gender: "male" | "femal
 /**
  * Get all skill/talent asset URLs for a resonator based on naming conventions
  */
-export function getSkillAssets(resonator: Resonator): SkillAssets {
+export function getForteAssets(resonator: Resonator): ForteAssets {
   const assetFolderName = resonator.id.startsWith("rover") ? "Rover" : resonator.name
   const roverVariantPath = resonator.id.startsWith("rover") ? `/${resonator.attribute}` : ""
   const basePath = `/assets/resonators/${resonator.rarity}_stars/${assetFolderName}${roverVariantPath}`
