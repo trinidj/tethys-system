@@ -19,7 +19,7 @@ export interface WeaponAssets {
 export interface StatRange {
   min: number;
   max: number;
-}
+}                                 
 
 export interface Weapon {
   id: string;

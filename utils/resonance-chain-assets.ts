@@ -4,7 +4,7 @@ import { Resonator } from "@/types/resonator"
 export function getResonanceChainAssets(resonator: Resonator): SequenceNodeAssets {
   const assetFolderName = resonator.id.startsWith("rover") ? "Rover" : resonator.name
   const roverVariantPath = resonator.id.startsWith("rover") ? `/${resonator.attribute}` : ""
-  const basePath = `/assets/resonators/${resonator.rarity}_stars/${assetFolderName}${roverVariantPath}`
+  const basePath = `/assets/resonators/${resonator.rarity}_star/${assetFolderName}${roverVariantPath}`
 
   return {
     sequenceNode1: `${basePath}/node_1.png`,

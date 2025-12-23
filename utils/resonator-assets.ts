@@ -10,11 +10,11 @@ import combatRoles from "@/data/combat_roles.json"
 
 export function getResonatorAssets(resonator: Resonator, gender: "male" | "female" = "female"): ResonatorAssets {
   const weaponIconMap: Record<WeaponType, string> = {
-    Pistol: "Pistols_Icon.png",
+    Pistols: "Pistols_Icon.png",
     Sword: "Sword_Icon.png",
     Broadblade: "Broadblade_Icon.png",
     Rectifier: "Rectifier_Icon.png",
-    Gauntlet: "Gauntlets_Icon.png",
+    Gauntlets: "Gauntlets_Icon.png",
   };
 
   // Rover variants share a common icon asset folder name
@@ -24,9 +24,9 @@ export function getResonatorAssets(resonator: Resonator, gender: "male" | "femal
     : "sprite.png";
 
   return {
-    icon: `/assets/resonators/${resonator.rarity}_stars/${assetFolderName}/icon.png`,
-    sprite: `/assets/resonators/${resonator.rarity}_stars/${assetFolderName}/${spriteFileName}`,
-    splashArt: `/assets/resonators/${resonator.rarity}_stars/${assetFolderName}/splash_art.png`,
+    icon: `/assets/resonators/${resonator.rarity}_star/${assetFolderName}/icon.png`,
+    sprite: `/assets/resonators/${resonator.rarity}_star/${assetFolderName}/${spriteFileName}`,
+    splashArt: `/assets/resonators/${resonator.rarity}_star/${assetFolderName}/splash_art.png`,
     attribute: `/assets/attributes/${resonator.attribute}.png`,
     weaponType: `/assets/weapons/${weaponIconMap[resonator.weaponType]}`,
   };
