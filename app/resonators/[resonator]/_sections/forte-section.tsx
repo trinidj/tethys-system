@@ -107,7 +107,7 @@ export function Forte({ resonator }: ForteSectionProps) {
                       </div>
 
                       <div>
-                        <h2 className="font-semibold text-2xl">{skillData.name}</h2>
+                        <h2 className="font-semibold text-xl">{skillData.name}</h2>
                         <span className="text-muted-foreground font-medium text-sm">{skillData.type}</span>
                       </div>
                     </header>
@@ -147,7 +147,7 @@ export function Forte({ resonator }: ForteSectionProps) {
                       </div>
 
                       <div>
-                        <CardTitle className="font-semibold text-2xl">{skillData.name}</CardTitle>
+                        <CardTitle className="font-semibold text-xl">{skillData.name}</CardTitle>
                         <CardDescription className="text-muted-foreground font-medium text-sm">{skillData.type}</CardDescription>
                       </div>
                     </CardHeader>
