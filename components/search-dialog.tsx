@@ -75,60 +75,58 @@ export default function SearchDialog() {
           <DialogTitle></DialogTitle>
         </DialogHeader>
 
-        <div>
-          <InputGroup className="mb-4">
-            <InputGroupInput 
-              placeholder="Search by name..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              className="text-lg"
-              autoFocus
-            />
-            <InputGroupAddon>
-              <Search className="h-4 w-4 text-muted-foreground" />
-            </InputGroupAddon>
-          </InputGroup>
+        <InputGroup className="mb-4">
+          <InputGroupInput 
+            placeholder="Search..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="text-lg"
+            autoFocus
+          />
+          <InputGroupAddon>
+            <Search className="h-4 w-4 text-muted-foreground" />
+          </InputGroupAddon>
+        </InputGroup>
 
-          <ScrollArea className="h-[400px] pr-4">
-            <div className="flex flex-col gap-2">
-              {query.trim() && filteredResonators.length === 0 && (
-                <div className="text-center text-muted-foreground py-8">
-                  No results found.
-                </div>
-              )}
+        <ScrollArea className="h-[400px] pr-4">
+          <div className="flex flex-col gap-2">
+            {query.trim() && filteredResonators.length === 0 && (
+              <div className="text-center text-muted-foreground py-8">
+                No results found.
+              </div>
+            )}
 
-              {filteredResonators.map((resonator) => {
-                const assets = getResonatorAssets(resonator)
-                
-                return (
-                  <Link
-                    key={resonator.id}
-                    href={`/resonators/${resonator.id}`}
-                    onClick={() => setOpen(false)}
-                  >
-                    <Item className="hover:bg-accent/50">
-                      <ItemMedia>
-                        <div className="overflow-hidden border-2 border-primary rounded-xl">
-                          <Image 
-                            src={assets.icon}
-                            alt={resonator.name}
-                            width={64}
-                            height={64}
-                            sizes="(max-width: 640px) 50vw, (max-width: 1024) 25vw, 150px"
-                          />
-                        </div>
-                      </ItemMedia>
-                      <ItemContent>
-                        <ItemTitle>{resonator.name}</ItemTitle>
-                        <ItemDescription>{resonator.description}</ItemDescription>
-                      </ItemContent>
-                    </Item>
-                  </Link>
-                )
-              })}
-            </div>
-          </ScrollArea>
-        </div>
+            {filteredResonators.map((resonator) => {
+              const assets = getResonatorAssets(resonator)
+              
+              return (
+                <Link
+                  key={resonator.id}
+                  href={`/resonators/${resonator.id}`}
+                  onClick={() => setOpen(false)}
+                >
+                  <Item className="hover:bg-accent/50">
+                    <ItemMedia>
+                      <div className="overflow-hidden border-2 border-primary rounded-xl">
+                        <Image 
+                          src={assets.icon}
+                          alt={resonator.name}
+                          width={64}
+                          height={64}
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024) 25vw, 150px"
+                        />
+                      </div>
+                    </ItemMedia>
+                    <ItemContent>
+                      <ItemTitle>{resonator.name}</ItemTitle>
+                      <ItemDescription>{resonator.description}</ItemDescription>
+                    </ItemContent>
+                  </Item>
+                </Link>
+              )
+            })}
+          </div>
+        </ScrollArea>
       </DialogContent>
     </Dialog>
   )
