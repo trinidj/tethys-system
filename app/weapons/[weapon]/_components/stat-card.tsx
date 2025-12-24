@@ -40,16 +40,14 @@ export default function StatCard({ weapon }: StatCardProps) {
     // Normalize separators to spaces so we can title-case multi-word names
     const key = name.toLowerCase().replace(/[_-]+/g, ' ').trim()
 
-    // Keep core stats fully uppercased
-    if (["atk", "hp", "def", "dmg"].includes(key)) {
-      return key.toUpperCase()
-    }
+    // Uppercase common abbreviations when they appear as whole words (e.g., "atk", "dmg")
+    const uppercaseWords = new Set(["atk", "hp", "def", "dmg"])
 
-    // Title-case each word (e.g., "energy regen" -> "Energy Regen")
+    // Title-case each word, but fully uppercase known abbreviation words
     return key
       .split(' ')
       .filter(Boolean)
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .map(word => uppercaseWords.has(word) ? word.toUpperCase() : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(' ')
   }
 
