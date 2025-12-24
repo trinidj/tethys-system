@@ -1,6 +1,20 @@
 {
   "weapons": [
     {
+      "id": "rectifier_of_voyager",
+      "name": "Rectifier of Voyager",
+      "rarity": 3,
+      "weaponType": "Rectifier",
+      "isNew": false,
+      "stats": {
+        "atk": { "min": 24, "max": 300 },
+        "secondaryStat": {
+          "name": "Energy Regen",
+          "value": { "min": 7.2, "max": 32.4 }
+        }
+      }
+    },
+    {
       "id": "sword_of_night",
       "name": "Sword of Night",
       "rarity": 3,
@@ -9,7 +23,7 @@
       "stats": {
         "atk": { "min": 26, "max": 325 },
         "secondaryStat": {
-          "name": "atk",
+          "name": "ATK",
           "value": { "min": 5.4, "max": 24.3 }
         }
       }
@@ -23,7 +37,7 @@
       "stats": {
         "atk": { "min": 24, "max": 300 },
         "secondaryStat": {
-          "name": "energy_regen",
+          "name": "Energy Regen",
           "value": { "min": 7.2, "max": 32.4 }
         }
       }
@@ -51,7 +65,7 @@
       "stats": {
         "atk": { "min": 22, "max": 275  },
         "secondaryStat": {
-          "name": "atk",
+          "name": "ATK",
           "value": { "min": 3.3, "max": 14.8 }
         }
       }
@@ -65,7 +79,7 @@
       "stats": {
         "atk": { "min": 22, "max": 275  },
         "secondaryStat": {
-          "name": "atk",
+          "name": "ATK",
           "value": { "min": 3.3, "max": 14.8 }
         }
       }
@@ -79,7 +93,7 @@
       "stats": {
         "atk": { "min": 22, "max": 275  },
         "secondaryStat": {
-          "name": "atk",
+          "name": "ATK",
           "value": { "min": 3.3, "max": 14.8 }
         }
       }
@@ -93,7 +107,7 @@
       "stats": {
         "atk": { "min": 22, "max": 275  },
         "secondaryStat": {
-          "name": "atk",
+          "name": "ATK",
           "value": { "min": 3.3, "max": 14.8 }
         }
       }
@@ -107,7 +121,7 @@
       "stats": {
         "atk": { "min": 20, "max": 250 },
         "secondaryStat": {
-          "name": "atk",
+          "name": "ATK",
           "value": { "min": 2.5, "max": 11.4 }
         }
       }
@@ -121,7 +135,7 @@
       "stats": {
         "atk": { "min": 20, "max": 250 },
         "secondaryStat": {
-          "name": "atk",
+          "name": "ATK",
           "value": { "min": 2.5, "max": 11.4 }
         }
       }
@@ -135,7 +149,7 @@
       "stats": {
         "atk": { "min": 20, "max": 250 },
         "secondaryStat": {
-          "name": "atk",
+          "name": "ATK",
           "value": { "min": 2.5, "max": 11.4 }
         }
       }
@@ -149,7 +163,7 @@
       "stats": {
         "atk": { "min": 20, "max": 250 },
         "secondaryStat": {
-          "name": "atk",
+          "name": "ATK",
           "value": { "min": 2.5, "max": 11.4 }
         }
       }
@@ -163,7 +177,7 @@
       "stats": {
         "atk": { "min": 20, "max": 250 },
         "secondaryStat": {
-          "name": "atk",
+          "name": "ATK",
           "value": { "min": 2.5, "max": 11.4 }
         } 
       }

@@ -1,0 +1,50 @@
+[
+  {
+    "level": "90",
+    "materials": [
+      {
+        "name": "Lento Helix",
+        "amount": 4,
+        "type": "common"
+      },
+      {
+        "name": "Adagio Helix",
+        "amount": 5,
+        "type": "common"
+      },
+      {
+        "name": "Andante Helix",
+        "amount": 4,
+        "type": "common"
+      },
+      {
+        "name": "Presto Helix",
+        "amount": 13
+      },
+      {
+        "name": "Crude Ring",
+        "amount": 4,
+        "type": "common"
+      },
+      {
+        "name": "Basic Ring",
+        "amount": 4,
+        "type": "common"
+      },
+      {
+        "name": "Improved Ring",
+        "amount": 7,
+        "type": "common"
+      },
+      {
+        "name": "Tailored Ring",
+        "amount": 8
+      },
+      {
+        "name": "Shell Credits",
+        "amount": 198000,
+        "type": "currency"
+      }
+    ]
+  }
+]
