@@ -1,0 +1,42 @@
+[
+  {
+    "level": "90",
+    "materials": [
+      {
+        "name": "Impure Phlogiston",
+        "amount": 2,
+        "type": "common"
+      },
+      {
+        "name": "Extracted Phlogiston",
+        "amount": 2,
+        "type": "common"
+      },
+      {
+        "name": "Refined Phlogiston",
+        "amount": 2,
+        "type": "common"
+      },
+      {
+        "name": "Crude Ring",
+        "amount": 2,
+        "type": "common"
+      },
+      {
+        "name": "Basic Ring",
+        "amount": 2,
+        "type": "common"
+      },
+      {
+        "name": "Improved Ring",
+        "amount": 3,
+        "type": "common"
+      },
+      {
+        "name": "Shell Credits",
+        "amount": 26000,
+        "type": "currency"
+      }
+    ]
+  }
+]

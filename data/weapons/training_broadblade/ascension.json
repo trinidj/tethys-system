@@ -1,0 +1,42 @@
+[
+  {
+    "level": "90",
+    "materials": [
+      {
+        "name": "Waveworn Residue 210",
+        "amount": 2,
+        "type": "common"
+      },
+      {
+        "name": "Waveworn Residue 226",
+        "amount": 2,
+        "type": "common"
+      },
+      {
+        "name": "Waveworn Residue 235",
+        "amount": 2,
+        "type": "common"
+      },
+      {
+        "name": "LF Whisperin Core",
+        "amount": 2,
+        "type": "common"
+      },
+      {
+        "name": "MF Whisperin Core",
+        "amount": 2,
+        "type": "common"
+      },
+      {
+        "name": "HF Whisperin Core",
+        "amount": 3,
+        "type": "common"
+      },
+      {
+        "name": "Shell Credits",
+        "amount": 26000,
+        "type": "currency"
+      }
+    ]
+  }
+]
