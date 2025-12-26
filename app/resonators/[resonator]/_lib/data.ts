@@ -271,9 +271,9 @@ export function getResonanceChain(resonator: Resonator): SequenceNode[] {
     
     let filePath: string;
     if (isRover && resonator.attribute) {
-      filePath = path.join(process.cwd(), 'data', 'resonators', folderName, resonator.attribute.toLowerCase(), 'sequence-nodes.md');
+      filePath = path.join(process.cwd(), 'data', 'resonators', folderName, resonator.attribute.toLowerCase(), 'resonance_chain.md');
     } else {
-      filePath = path.join(process.cwd(), 'data', 'resonators', folderName, 'sequence-nodes.md');
+      filePath = path.join(process.cwd(), 'data', 'resonators', folderName, 'resonance_chain.md');
     }
 
     if (!fs.existsSync(filePath)) {
