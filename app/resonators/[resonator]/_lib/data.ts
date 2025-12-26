@@ -102,9 +102,9 @@ export function getForteAscension(resonator: Resonator): ForteAscensionMaterials
     
     let filePath: string;
     if (isRover && resonator.attribute) {
-      filePath = path.join(process.cwd(), 'data', 'resonators', folderName, resonator.attribute.toLowerCase(), 'skill-ascension.json');
+      filePath = path.join(process.cwd(), 'data', 'resonators', folderName, resonator.attribute.toLowerCase(), 'forte_ascension.json');
     } else {
-      filePath = path.join(process.cwd(), 'data', 'resonators', folderName, 'skill-ascension.json');
+      filePath = path.join(process.cwd(), 'data', 'resonators', folderName, 'forte_ascension.json');
     }
 
     if (!fs.existsSync(filePath)) {
