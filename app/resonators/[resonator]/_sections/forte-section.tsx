@@ -6,7 +6,7 @@ import { getMaterialAssets } from "@/utils/development-material-assets";
 import { getAttributeColor, getDevelopmentMaterialRarityColor } from "@/lib/color-utils";
 import Image from "next/image";
 import parse from "html-react-parser";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Forte as ForteData } from "@/types/forte";
 
 import {
