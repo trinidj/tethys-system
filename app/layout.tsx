@@ -1,9 +1,13 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { Nextjs } from "@/components/icons/next-js-icon";
+import { TailwindCSS } from "@/components/icons/tailwindcss-icon";
+import { shadcnui } from "@/components/icons/shadcn-icon";
 import AppSidebar from "@/components/app-sidebar";
 import NavBar from "@/components/nav-bar";
 import SearchDialog from "@/components/search-dialog";
 import ScrollToTop from "@/components/scroll-to-top";
+import Link from "next/link";
 
 import { cookies } from "next/headers";
 
@@ -31,6 +35,12 @@ export default async function RootLayout({
 }>) {
   const cookieStore = await cookies()
   const defaultOpen = cookieStore.get("sidebar-state")?.value === "closed"
+
+  const footerLinks = [
+    { name: "Nextjs", url: "https://nextjs.org/", icon: Nextjs },
+    { name: "Tailwind", url: "https://tailwindcss.com/", icon: TailwindCSS },
+    { name: "shadcnui", url: "https://ui.shadcn.com/", icon: shadcnui }
+  ]
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -65,6 +75,26 @@ export default async function RootLayout({
                 <ScrollToTop />
                 {children}
               </main>
+
+              <footer className="h-18">
+                <div className="flex items-center justify-between lg:mx-90">
+                  {/* Left Side */}
+                  <div className="text-muted-foreground text-sm font-medium">
+                    <p>© 2025 Tethys System</p>
+                    <p><i>This website is a fan-made resource and is not affiliated with, maintained by, or in any way associated with Kuro Games.</i></p>
+                  </div>
+
+                  {/* Right Side */}
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <p className="text-sm font-medium">Made with: </p>
+                    {footerLinks.map((link) => (
+                      <Link key={link.name} href={link.url}>
+                        <link.icon />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </footer>
             </div>
           </SidebarProvider>
         </ThemeProvider>

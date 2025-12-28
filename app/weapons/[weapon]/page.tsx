@@ -14,7 +14,7 @@ import StatCard from "./_components/stat-card"
 
 import { getWeaponAssets, getWeaponTypeIcon } from "@/utils/weapon-assets"
 import { WeaponImage } from "./_components/weapon-image"
-import { getDevelopmentMaterialRarityColor } from "@/lib/color-utils"
+import { getDevelopmentMaterialRarityColor, getRarityColor } from "@/lib/color-utils"
 import { getMaterialAssets } from "@/utils/development-material-assets"
 import { RefinementSkill } from "./_components/refinement-skill"
 
@@ -39,9 +39,11 @@ export default async function Weapon({ params }: { params: Promise<{ weapon: str
 
   const assets = getWeaponAssets(weaponData)
   const weaponTypeIcon = getWeaponTypeIcon(weaponData.weaponType)
+  const weaponRarityColor = getRarityColor(weaponData.rarity)
 
   const ascensionMaterials = await getWeaponAscension(weaponData)
   const refinementSkill = await getWeaponRefinementSkill(weaponData)
+
   const totalMaterials = ascensionMaterials.flatMap((phase) => 
     phase.materials.map((material) => ({
       ...material
@@ -52,7 +54,13 @@ export default async function Weapon({ params }: { params: Promise<{ weapon: str
     <section className="flex h-[675px] flex-col lg:flex-row gap-14">
       {/* Icon */}
       <div className="flex flex-col gap-4">
-        <Card className="relative p-0 overflow-hidden shadow-none bg-linear-to-t from-background to-card">
+        <Card 
+          className="relative border-2 p-0 overflow-hidden shadow-none bg-linear-to-t from-background to-card"
+          style={{
+            borderColor: `var(--${weaponRarityColor})`,
+            boxShadow: `inset 0 -4px 14px -2px var(--${weaponRarityColor})`
+          }}
+        >
           <CardContent className="p-0">
             <div className="flex flex-col">
               <div className="flex overflow-hidden relative w-64 h-64">
