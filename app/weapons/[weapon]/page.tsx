@@ -1,4 +1,4 @@
-import { getAllWeaponSlugs, getWeaponAscension, getWeaponBySlug } from "./_lib/data"
+import { getAllWeaponSlugs, getWeaponAscension, getWeaponBySlug, getWeaponRefinementSkill } from "./_lib/data"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -14,9 +14,9 @@ import StatCard from "./_components/stat-card"
 
 import { getWeaponAssets, getWeaponTypeIcon } from "@/utils/weapon-assets"
 import { WeaponImage } from "./_components/weapon-image"
-import { getRarityColor, getDevelopmentMaterialRarityColor } from "@/lib/color-utils"
+import { getDevelopmentMaterialRarityColor } from "@/lib/color-utils"
 import { getMaterialAssets } from "@/utils/development-material-assets"
-import { RefinementSkillDialog } from "./_components/refinement-skill-dialog"
+import { RefinementSkill } from "./_components/refinement-skill"
 
 export const dynamicParam = false
 
@@ -37,11 +37,11 @@ export default async function Weapon({ params }: { params: Promise<{ weapon: str
     return <div>Weapon not found</div>
   }
 
-  const weaponRarityColor = getRarityColor(weaponData.rarity)
   const assets = getWeaponAssets(weaponData)
   const weaponTypeIcon = getWeaponTypeIcon(weaponData.weaponType)
 
-  const ascensionMaterials = getWeaponAscension(weaponData)
+  const ascensionMaterials = await getWeaponAscension(weaponData)
+  const refinementSkill = await getWeaponRefinementSkill(weaponData)
   const totalMaterials = ascensionMaterials.flatMap((phase) => 
     phase.materials.map((material) => ({
       ...material
@@ -57,16 +57,6 @@ export default async function Weapon({ params }: { params: Promise<{ weapon: str
             <div className="flex flex-col">
               <div className="flex overflow-hidden relative w-64 h-64">
                 <WeaponImage src={assets.icon} alt={weaponData.name} />
-              </div>
-
-              <div
-                className="bg-card flex justify-center h-14 items-center border-t-2"
-                style={{
-                  borderColor: `var(--${weaponRarityColor})`,
-                  boxShadow: `0 -4px 100px -2px var(--${weaponRarityColor})`
-                }}
-              >
-                <RefinementSkillDialog weapon={weaponData} />
               </div>
             </div>
           </CardContent>
@@ -107,10 +97,14 @@ export default async function Weapon({ params }: { params: Promise<{ weapon: str
 
         <Separator />
 
-        <StatCard weapon={weaponData} />
+        <StatCard 
+          weapon={weaponData} 
+          refinementSection={refinementSkill ? <RefinementSkill refinementSkill={refinementSkill} /> : undefined} 
+        />
 
+        {/* Ascension */}
         <Card className="p-6">
-          <CardHeader className="px-0">
+          <CardHeader className="px-0 gap-0">
             <CardTitle className="text-xl">Ascension</CardTitle>
           </CardHeader>
           <CardContent className="px-0">

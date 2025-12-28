@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Weapon } from "@/types/weapon"
 import { getStatIcon } from "@/utils/weapon-assets"
+import { ReactNode } from "react"
 
 import {
   Card,
@@ -24,9 +25,10 @@ import Image from "next/image"
 
 interface StatCardProps {
   weapon: Weapon
+  refinementSection: ReactNode
 }
 
-export default function StatCard({ weapon }: StatCardProps) {
+export default function StatCard({ weapon, refinementSection }: StatCardProps) {
   const [isMaxLevel, setIsMaxLevel] = useState(false)
 
   const formatStatValue = (value: number, isPercent = false) => {
@@ -70,7 +72,7 @@ export default function StatCard({ weapon }: StatCardProps) {
 
   return (
     <Card className="p-6">
-      <CardHeader className="px-0">
+      <CardHeader className="px-0 gap-0">
         <div className="flex items-center justify-between">
           <CardTitle className="text-xl">Stats</CardTitle>
 
@@ -80,7 +82,7 @@ export default function StatCard({ weapon }: StatCardProps) {
           </div>
         </div>
       </CardHeader>
-      <CardContent className="px-0">
+      <CardContent className="px-0 flex flex-col gap-6">
         <Table className="bg-accent rounded-xl overflow-hidden">
           <TableBody>
             {stats.map((stat) => (
@@ -101,6 +103,8 @@ export default function StatCard({ weapon }: StatCardProps) {
             ))}
           </TableBody> 
         </Table>
+
+        {refinementSection}
       </CardContent>
     </Card>
   )
