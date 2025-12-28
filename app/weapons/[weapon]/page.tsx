@@ -51,19 +51,19 @@ export default async function Weapon({ params }: { params: Promise<{ weapon: str
   )
 
   return (
-    <section className="flex flex-col lg:flex-row gap-14">
+    <section className="flex flex-col lg:flex-row gap-6 md:gap-10 lg:gap-14">
       {/* Icon */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 mx-auto lg:mx-0">
         <Card 
           className="relative border-2 p-0 overflow-hidden shadow-none bg-linear-to-t from-background to-card"
           style={{
-            borderColor: `var(--${weaponRarityColor})`,
-            boxShadow: `inset 0 -4px 14px -2px var(--${weaponRarityColor})`
+            borderColor: `var(--$${weaponRarityColor})`,
+            boxShadow: `inset 0 -4px 14px -2px var(--$${weaponRarityColor})`
           }}
         >
           <CardContent className="p-0">
             <div className="flex flex-col">
-              <div className="flex overflow-hidden relative w-64 h-64">
+              <div className="flex overflow-hidden relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64">
                 <WeaponImage src={assets.icon} alt={weaponData.name} />
               </div>
             </div>
@@ -73,8 +73,8 @@ export default async function Weapon({ params }: { params: Promise<{ weapon: str
 
       {/* Details */}
       <div className="flex flex-1 flex-col gap-6">
-        <header className="flex flex-col items-center gap-4 lg:flex-row lg:justify-between">
-          <div className="flex gap-4">
+        <header className="flex flex-col items-center gap-3 md:gap-4 lg:flex-row lg:justify-between">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center">
             <div
               className="border-2 flex items-center justify-center rounded-xl border-primary"
             >
@@ -83,13 +83,13 @@ export default async function Weapon({ params }: { params: Promise<{ weapon: str
                 alt={assets.weaponType}
                 width={256}
                 height={256}
-                className="size-15 scale-80"
+                className="size-12 md:size-15 scale-80"
               />
             </div>
 
-            <div className="text-center lg:text-left">
-              <h1 className="font-bold text-3xl">{weaponData.name}</h1>
-              <span className="text-muted-foreground font-medium text-sm">{weaponData.weaponType}</span>
+            <div className="text-center sm:text-left">
+              <h1 className="font-bold text-2xl md:text-3xl">{weaponData.name}</h1>
+              <span className="text-muted-foreground font-medium text-xs md:text-sm">{weaponData.weaponType}</span>
             </div>
           </div>
 
@@ -116,7 +116,7 @@ export default async function Weapon({ params }: { params: Promise<{ weapon: str
             <CardTitle className="text-xl">Ascension</CardTitle>
           </CardHeader>
           <CardContent className="px-0">
-            <div className="grid grid-cols-9 gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-9">
               {totalMaterials.map((material) => (
                 <Card key={material.item.name} className="p-0 overflow-hidden">
                   <CardContent className="px-0">

@@ -86,7 +86,7 @@ export default function WeaponFilterDialog({ value, onApply }: WeaponDialogProps
             <FieldGroup>
               <Field>
                 <FieldLabel className="text-base">Rarity</FieldLabel>
-                <div className="flex gap-1.5">
+                <div className="flex flex-wrap gap-1.5">
                   {RARITIES.map((rarity) => {
                     const isCurrentActive = filters.rarities.includes(rarity.value)
 
@@ -114,7 +114,7 @@ export default function WeaponFilterDialog({ value, onApply }: WeaponDialogProps
 
               <Field>
                 <FieldLabel className="text-base">Weapon Type</FieldLabel>
-                <div className="flex gap-1.5">
+                <div className="flex flex-wrap gap-1.5">
                   {WEAPON_TYPES.map((weaponType) => {
                     const isCurrentActive = filters.weaponTypes.includes(weaponType.value)
 

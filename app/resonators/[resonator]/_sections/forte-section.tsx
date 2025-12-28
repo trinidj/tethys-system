@@ -66,7 +66,7 @@ export function Forte({ resonator, forteAscensionMaterials, forte }: ForteSectio
         <CardContent className="px-0 flex flex-col gap-6">
           {/* Forte Skills */}
           <Tabs defaultValue="normalAttack" className="w-full gap-6">
-            <TabsList className="p-0 bg-transparent h-auto flex-wrap justify-center gap-6">
+            <TabsList className="p-0 bg-transparent h-auto flex-wrap justify-center gap-3 md:gap-4 lg:gap-6">
               {activeForteSkills.map((key) => {
                 const skillData = forte?.[key];
                 if (!skillData) return null;
@@ -147,7 +147,7 @@ export function Forte({ resonator, forteAscensionMaterials, forte }: ForteSectio
                 <CardTitle className="font-semibold text-xl">Ascension</CardTitle>
               </CardHeader>
               <CardContent className="px-0">
-                <div className="grid grid-cols-11 gap-4">
+                <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-9 2xl:grid-cols-11">
                   {totalMaterials.map((material) => (
                     <Card key={material.item.name} className="p-0 overflow-hidden">
                       <CardContent className="px-0">
@@ -186,7 +186,7 @@ export function Forte({ resonator, forteAscensionMaterials, forte }: ForteSectio
 
             <Separator />
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {inherentForteSkills.map((key) => {
                 const skillData = forte?.[key]
                 if (!skillData) return null;

@@ -63,9 +63,9 @@ export default function Profile({ resonator, hasSplashArt, resonatorAscensionMat
   const isRover = resonator.id.startsWith("rover")
 
   return (
-    <section id="profile" className="flex h-[675px] flex-col lg:flex-row gap-14">
+    <section id="profile" className="flex flex-col lg:flex-row gap-6 md:gap-10 lg:gap-14">
       {/* Sprite */}
-      <Card className="relative h-full w-full lg:w-[400px] p-0 overflow-hidden shadow-none bg-linear-to-t from-background to-card">
+      <Card className="relative h-[500px] sm:h-[600px] lg:h-[675px] w-full lg:w-[350px] xl:w-[400px] p-0 overflow-hidden shadow-none bg-linear-to-t from-background to-card mx-auto lg:mx-0">
         <CardContent className="h-full p-0">
           <div className="flex flex-col h-full">
             <div className="flex-1 flex overflow-hidden relative">
@@ -120,8 +120,8 @@ export default function Profile({ resonator, hasSplashArt, resonatorAscensionMat
       </Card>
 
       <div className="flex flex-1 flex-col gap-6">
-        <header className="flex flex-col items-center gap-4 lg:flex-row lg:justify-between">
-          <div className="flex gap-4">
+        <header className="flex flex-col items-center gap-3 md:gap-4 lg:flex-row lg:justify-between">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center">
             <div
               className="border-2 flex items-center justify-center rounded-xl"
               style={{
@@ -133,20 +133,20 @@ export default function Profile({ resonator, hasSplashArt, resonatorAscensionMat
                 alt={resonator.attribute}
                 width={128}
                 height={128}
-                className="size-15"
+                className="size-12 md:size-15"
               />
             </div>
 
             {!isRover && (
-              <div className="text-center lg:text-left">
-                <h1 className="font-bold text-3xl">{resonator.name}</h1>
-                <span className="text-muted-foreground font-medium text-sm">{resonator.description}</span>
+              <div className="text-center sm:text-left">
+                <h1 className="font-bold text-2xl md:text-3xl">{resonator.name}</h1>
+                <span className="text-muted-foreground font-medium text-xs md:text-sm">{resonator.description}</span>
               </div>
             )}
 
             {isRover && (
-              <div className="text-center flex items-center lg:text-left">
-                <h1 className="font-bold text-3xl">{resonator.name}</h1>
+              <div className="text-center flex items-center sm:text-left">
+                <h1 className="font-bold text-2xl md:text-3xl">{resonator.name}</h1>
               </div>
             )} 
           </div>
@@ -214,7 +214,7 @@ export default function Profile({ resonator, hasSplashArt, resonatorAscensionMat
             <CardTitle className="text-xl">Ascension</CardTitle>
           </CardHeader>
           <CardContent className="px-0">
-            <div className="grid grid-cols-7 gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7">
               {totalMaterials.map((material) => (
                 <Card key={material.item.name} className="p-0 overflow-hidden">
                   <CardContent className="px-0">

@@ -27,8 +27,8 @@ export default function ResonatorsPage() {
   })
 
   return (
-    <div className="min-h-screen flex flex-col gap-6">
-      <section className="container flex flex-col gap-4">
+    <div className="min-h-screen flex flex-col gap-4 md:gap-6">
+      <section className="flex flex-col gap-3 md:gap-4 px-2 sm:px-0">
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl">Resonators</h1>
           <p className="text-sm text-muted-foreground sm:text-base md:text-lg">Browse all Resonators in Wuthering Waves</p>
@@ -51,7 +51,7 @@ export default function ResonatorsPage() {
       </section>
 
       <section className="container">
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8">
           {filteredResonators.map((resonator) => (
             <ResonatorCard key={resonator.id} resonator={resonator} />
           ))}

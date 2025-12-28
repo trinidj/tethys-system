@@ -90,7 +90,7 @@ export default function ResonatorFilterDialog({ value, onApply }: FilterDialogPr
             <FieldGroup>
               <Field>
                 <FieldLabel className="text-base">Rarity</FieldLabel>
-                <div className="flex gap-1.5">
+                <div className="flex flex-wrap gap-1.5">
                   {RARITIES.filter(r => r.value === "4" || r.value === "5").map((rarity) => {
                     const isCurrentActive = filters.rarities.includes(rarity.value)
 
@@ -118,7 +118,7 @@ export default function ResonatorFilterDialog({ value, onApply }: FilterDialogPr
 
               <Field>
                 <FieldLabel className="text-base">Attribute</FieldLabel>
-                <div className="flex gap-1.5">
+                <div className="flex flex-wrap gap-1.5">
                   {ATTRIBUTES.map((attribute) => {
                     const isCurrentActive = filters.attributes.includes(attribute.value)
                     const attributeColor = getAttributeColor(attribute.label as Attribute)
@@ -154,7 +154,7 @@ export default function ResonatorFilterDialog({ value, onApply }: FilterDialogPr
 
               <Field>
                 <FieldLabel className="text-base">Weapon Type</FieldLabel>
-                <div className="flex gap-1.5">
+                <div className="flex flex-wrap gap-1.5">
                   {WEAPON_TYPES.map((weaponType) => {
                     const isCurrentActive = filters.weaponTypes.includes(weaponType.value)
 
