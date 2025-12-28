@@ -51,7 +51,7 @@ export default async function Weapon({ params }: { params: Promise<{ weapon: str
   )
 
   return (
-    <section className="flex h-[675px] flex-col lg:flex-row gap-14">
+    <section className="flex flex-col lg:flex-row gap-14">
       {/* Icon */}
       <div className="flex flex-col gap-4">
         <Card 
