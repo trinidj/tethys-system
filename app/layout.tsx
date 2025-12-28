@@ -71,7 +71,7 @@ export default async function RootLayout({
                 </div>
               </header>
 
-              <main className="m-5 lg:mx-90 lg:my-20">
+              <main className="m-5 lg:mx-90 lg:my-22">
                 <ScrollToTop />
                 {children}
               </main>
