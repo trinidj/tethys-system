@@ -144,6 +144,12 @@ export default async function Weapon({ params }: { params: Promise<{ weapon: str
                 </Card>
               ))}
             </div>
+
+            {totalMaterials.length === 0 && (
+              <p className="text-center text-muted-foreground py-4">
+                Ascension Materials Unavailable
+              </p>
+            )}
           </CardContent>
         </Card>
       </div>
