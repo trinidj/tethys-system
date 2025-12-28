@@ -3,6 +3,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Nextjs } from "@/components/icons/next-js-icon";
 import { TailwindCSS } from "@/components/icons/tailwindcss-icon";
 import { shadcnui } from "@/components/icons/shadcn-icon";
+import { GitHub } from "@/components/icons/github-icon";
 import AppSidebar from "@/components/app-sidebar";
 import NavBar from "@/components/nav-bar";
 import SearchDialog from "@/components/search-dialog";
@@ -14,6 +15,7 @@ import { cookies } from "next/headers";
 import type { Metadata } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
 import "./globals.css";
+import { Separator } from "@/components/ui/separator";
 
 const robotoSans = Roboto({
   variable: "--font-roboto-sans",
@@ -54,7 +56,7 @@ export default async function RootLayout({
         >
           <SidebarProvider defaultOpen={defaultOpen}>
             <AppSidebar />
-            <div className="w-full min-h-screen">
+            <div className="w-full">
               <header className="flex items-center bg-card/50 h-14 border-b-2 border-b-primary/80">
                 <div className="flex mx-4 sm:mx-6 w-full items-center gap-2 md:hidden">
                   <SidebarTrigger />
@@ -85,13 +87,24 @@ export default async function RootLayout({
                   </div>
 
                   {/* Right Side */}
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <p className="text-xs sm:text-sm font-medium">Made with: </p>
-                    {footerLinks.map((link) => (
-                      <Link key={link.name} href={link.url}>
-                        <link.icon />
+                  <div className="flex h-5 items-center gap-4">
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <p className="text-xs sm:text-sm font-medium">Made with: </p>
+                      {footerLinks.map((link) => (
+                        <Link key={link.name} href={link.url} target="_blank">
+                          <link.icon />
+                        </Link>
+                      ))}
+                    </div>
+
+                    <Separator orientation="vertical" />
+                    
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <p className="text-xs sm:text-sm font-medium">GitHub:</p>
+                      <Link href="https://github.com/trinidj/tethys-system" target="_blank">
+                        <GitHub />
                       </Link>
-                    ))}
+                    </div>
                   </div>
                 </div>
               </footer>
