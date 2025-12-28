@@ -30,8 +30,15 @@ import {
 } from "@/components/ui/item"
 
 import resonatorsIndex from "@/data/resonators/index.json"
+import weaponsIndex from "@/data/weapons/index.json"
 import { getResonatorAssets } from "@/utils/resonator-assets"
+import { getWeaponAssets } from "@/utils/weapon-assets"
 import type { Resonator } from "@/types/resonator"
+import type { Weapon } from "@/types/weapon"
+
+type SearchResult = 
+  | { type: "resonator"; data: Resonator }
+  | { type: "weapon"; data: Weapon }
 
 export default function SearchDialog() {
   const [open, setOpen] = useState(false)
@@ -48,14 +55,25 @@ export default function SearchDialog() {
     return resonatorsIndex.resonators as Resonator[]
   }, [])
 
-  const filteredResonators = useMemo(() => {
+  const weapons = useMemo(() => {
+    return weaponsIndex.weapons as Weapon[]
+  }, [])
+
+  const filteredResults = useMemo(() => {
     if (!query.trim()) return []
     
     const lowerQuery = query.toLowerCase()
-    return resonators.filter((resonator) => 
-      resonator.name.toLowerCase().includes(lowerQuery)
-    )
-  }, [query, resonators])
+    
+    const matchedResonators: SearchResult[] = resonators
+      .filter((resonator) => resonator.name.toLowerCase().includes(lowerQuery))
+      .map((resonator) => ({ type: "resonator" as const, data: resonator }))
+    
+    const matchedWeapons: SearchResult[] = weapons
+      .filter((weapon) => weapon.name.toLowerCase().includes(lowerQuery))
+      .map((weapon) => ({ type: "weapon" as const, data: weapon }))
+    
+    return [...matchedResonators, ...matchedWeapons]
+  }, [query, resonators, weapons])
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -90,40 +108,72 @@ export default function SearchDialog() {
 
         <ScrollArea className="h-[400px] pr-4">
           <div className="flex flex-col gap-2">
-            {query.trim() && filteredResonators.length === 0 && (
+            {query.trim() && filteredResults.length === 0 && (
               <div className="text-center text-muted-foreground py-8">
                 No results found.
               </div>
             )}
 
-            {filteredResonators.map((resonator) => {
-              const assets = getResonatorAssets(resonator)
-              
-              return (
-                <Link
-                  key={resonator.id}
-                  href={`/resonators/${resonator.id}`}
-                  onClick={() => setOpen(false)}
-                >
-                  <Item className="hover:bg-accent/50">
-                    <ItemMedia>
-                      <div className="overflow-hidden border-2 border-primary rounded-xl">
-                        <Image 
-                          src={assets.icon}
-                          alt={resonator.name}
-                          width={64}
-                          height={64}
-                          sizes="(max-width: 640px) 50vw, (max-width: 1024) 25vw, 150px"
-                        />
-                      </div>
-                    </ItemMedia>
-                    <ItemContent>
-                      <ItemTitle>{resonator.name}</ItemTitle>
-                      <ItemDescription>{resonator.description}</ItemDescription>
-                    </ItemContent>
-                  </Item>
-                </Link>
-              )
+            {filteredResults.map((result) => {
+              if (result.type === "resonator") {
+                const resonator = result.data
+                const assets = getResonatorAssets(resonator)
+                
+                return (
+                  <Link
+                    key={`resonator-${resonator.id}`}
+                    href={`/resonators/${resonator.id}`}
+                    onClick={() => setOpen(false)}
+                  >
+                    <Item className="hover:bg-accent/50">
+                      <ItemMedia>
+                        <div className="overflow-hidden border-2 border-primary rounded-xl">
+                          <Image 
+                            src={assets.icon}
+                            alt={resonator.name}
+                            width={64}
+                            height={64}
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024) 25vw, 150px"
+                          />
+                        </div>
+                      </ItemMedia>
+                      <ItemContent>
+                        <ItemTitle>{resonator.name}</ItemTitle>
+                        <ItemDescription>{resonator.weaponType} • {resonator.rarity}★</ItemDescription>
+                      </ItemContent>
+                    </Item>
+                  </Link>
+                )
+              } else {
+                const weapon = result.data
+                const assets = getWeaponAssets(weapon)
+                
+                return (
+                  <Link
+                    key={`weapon-${weapon.id}`}
+                    href={`/weapons/${weapon.id}`}
+                    onClick={() => setOpen(false)}
+                  >
+                    <Item className="hover:bg-accent/50">
+                      <ItemMedia>
+                        <div className="overflow-hidden border-2 border-primary rounded-xl">
+                          <Image 
+                            src={assets.icon}
+                            alt={weapon.name}
+                            width={64}
+                            height={64}
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024) 25vw, 150px"
+                          />
+                        </div>
+                      </ItemMedia>
+                      <ItemContent>
+                        <ItemTitle>{weapon.name}</ItemTitle>
+                        <ItemDescription>{weapon.weaponType} • {weapon.rarity}★</ItemDescription>
+                      </ItemContent>
+                    </Item>
+                  </Link>
+                )
+              }
             })}
           </div>
         </ScrollArea>
