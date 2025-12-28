@@ -1,6 +1,20 @@
 {
   "weapons": [
     {
+      "id": "pistols_of_voyager",
+      "name": "Pistols of Voyager",
+      "rarity": 3,
+      "weaponType": "Pistols",
+      "isNew": false,
+      "stats": {
+        "atk": { "min": 24, "max": 300 },
+        "secondaryStat": {
+          "name": "ATK",
+          "value": { "min": 6.7, "max": 30.3 }
+        }
+      }
+    },
+    {
       "id": "rectifier_of_night",
       "name": "Rectifier of Night",
       "rarity": 3,
