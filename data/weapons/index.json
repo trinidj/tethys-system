@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "gauntlets_of_voyager",
+      "name": "Gauntlets of Voyager",
+      "rarity": 3, 
+      "weaponType": "Gauntlets",
+      "stats": {
+        "atk": { "min": 26, "max": 325 },
+        "secondaryStat": {
+          "name": "DEF",
+          "value": { "min": 6.8, "max": 30.7 }
+        }
+      }
+    },
+    {
       "id": "guardian_broadblade",
       "name": "Guardian Broadblade",
       "rarity": 3,
