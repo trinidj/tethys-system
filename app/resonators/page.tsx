@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Search } from "lucide-react"
 import dynamic from "next/dynamic"
 
@@ -10,17 +11,32 @@ import {
 } from "@/components/ui/input-group"
 
 import { ResonatorCard } from "@/app/resonators/resonator-card"
-import data from "@/data/resonators/index.json"
 import type { Resonator } from "@/types/resonator"
 import { useResonatorFilters } from "@/hooks/use-resonator-filter"
 
 export default function ResonatorsPage() {
-  const resonators = (data.resonators as Resonator[]).flatMap(r => {
-    if (r.variants && r.variants.length > 0) {
-      return r.variants.map(v => ({ ...r, ...v }))
+  const [resonators, setResonators] = useState<Resonator[]>([])
+
+  useEffect(() => {
+    async function fetchResonators() {
+      try {
+        const response = await fetch("/api/resonators")
+        const data = await response.json()
+        const flatResonators = (data.resonators as Resonator[]).flatMap(r => {
+          if (r.variants && r.variants.length > 0) {
+            return r.variants.map(v => ({ ...r, ...v }))
+          }
+          return r
+        })
+        setResonators(flatResonators)
+      } catch (error) {
+        console.error("Failed to fetch resonators:", error)
+      }
     }
-    return r
-  })
+
+    fetchResonators()
+  }, [])
+
   const { searchQuery, setSearchQuery, filters, setFilters, filteredResonators } = useResonatorFilters(resonators)
   const ResonatorFilterDialog = dynamic(() => import("./resonator-filter-dialog"), {
     ssr: false

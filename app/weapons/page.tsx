@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Search } from "lucide-react"
 import dynamic from "next/dynamic"
 
@@ -10,12 +11,25 @@ import {
 } from "@/components/ui/input-group"
 
 import { WeaponCard } from "@/app/weapons/weapon-card"
-import data from "@/data/weapons/index.json"
 import type { Weapon } from "@/types/weapon"
 import { useWeaponFilters } from "@/hooks/use-weapon-filter"
 
 export default function WeaponsPage() {
-  const weapons = (data.weapons as Weapon[])
+  const [weapons, setWeapons] = useState<Weapon[]>([])
+
+  useEffect(() => {
+    async function fetchWeapons() {
+      try {
+        const response = await fetch("/api/weapons")
+        const data = await response.json()
+        setWeapons(data.weapons as Weapon[])
+      } catch (error) {
+        console.error("Failed to fetch weapons:", error)
+      }
+    }
+
+    fetchWeapons()
+  }, [])
 
   const { searchQuery, setSearchQuery, filters, setFilters, filteredWeapons } = useWeaponFilters(weapons)
   const WeaponFilterDialog = dynamic(() => import("./weapon-filter-dialog"), {
