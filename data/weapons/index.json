@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "beguiling_melody",
+      "name": "Beguiling Melody",
+      "rarity": 3,
+      "weaponType": "Broadblade",
+      "stats": {
+        "atk": { "min": 24, "max": 300 },
+        "secondaryStat": {
+          "name": "ATK",
+          "value": { "min": 6.7, "max": 30.3 }
+        }
+      }
+    },
+    {
       "id": "broadblade_of_night",
       "name": "Broadblade of Night",
       "rarity": 3, 
