@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "guardian_broadblade",
+      "name": "Guardian Broadblade",
+      "rarity": 3,
+      "weaponType": "Broadblade",
+      "stats": {
+        "atk": { "min": 26, "max": 325 },
+        "secondaryStat": {
+          "name": "ATK",
+          "value": { "min": 5.4, "max": 24.3 }
+        }
+      }
+    },
+    {
       "id": "guardian_gauntlets",
       "name": "Guardian Gauntlets",
       "rarity": 3,
