@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "broadblade_of_voyager",
+      "name": "Broadblade of Voyager",
+      "rarity": 3,
+      "weaponType": "Broadblade",
+      "stats": {
+        "atk": { "min": 24, "max": 300 },
+        "secondaryStat": {
+          "name": "Energy Regen",
+          "value": { "min": 7.2, "max": 32.4 }
+        }
+      }
+    },  
+    {
       "id": "gauntlets_of_night",
       "name": "Gauntlets of Night",
       "rarity": 3,
