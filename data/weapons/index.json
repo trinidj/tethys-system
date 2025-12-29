@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "guardian_sword",
+      "name": "Guardian Sword",
+      "rarity": 3,
+      "weaponType": "Sword",
+      "stats": {
+        "atk": { "min": 24, "max": 300 },
+        "secondaryStat": {
+          "name": "HP",
+          "value": { "min": 11.9, "max": 30.3 }
+        }
+      }
+    },
+    {
       "id": "originite_type_1",
       "name": "Originite: Type I",
       "rarity": 3,
