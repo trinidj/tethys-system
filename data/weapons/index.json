@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "originite_type_2",
+      "name": "Originite: Type II",
+      "rarity": 3,
+      "weaponType": "Sword",
+      "stats": {
+        "atk": { "min": 26, "max": 325 },
+        "secondaryStat": {
+          "name": "ATK",
+          "value": { "min": 5.4, "max": 24.3 }
+        }
+      }
+    },
+    {
       "id": "originite_type_3",
       "name": "Originite: Type III",
       "rarity": 3,
