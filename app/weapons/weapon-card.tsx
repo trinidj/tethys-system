@@ -38,13 +38,13 @@ export function WeaponCard({ weapon }: { weapon: Weapon }) {
         </div>
 
         <div
-          className="bg-accent relative h-6 w-full flex items-center justify-center border-t-2"
+          className="bg-accent relative h-6 w-full flex items-center justify-center border-t-2 px-1.5 overflow-hidden"
           style={{
             borderColor: `var(--${rarityColor})`,
             boxShadow: `0 -4px 35px -2px var(--${rarityColor})`
           }}
         >
-          <Label className="font-semibold">{weapon.name}</Label>
+          <span className="text-sm font-semibold truncate block w-full text-center">{weapon.name}</span>
         </div>
       </CardContent>
     </Card>
