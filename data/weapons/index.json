@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "originite_type_1",
+      "name": "Originite: Type I",
+      "rarity": 3,
+      "weaponType": "Broadblade",
+      "stats": {
+        "atk": { "min": 24, "max": 300 },
+        "secondaryStat": {
+          "name": "DEF",
+          "value": { "min": 8.5, "max": 38.4 }
+        }
+      }
+    },
+    {
       "id": "originite_type_2",
       "name": "Originite: Type II",
       "rarity": 3,
