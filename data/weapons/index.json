@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "guardian_pistols",
+      "name": "Guardian Pistols",
+      "rarity": 3,
+      "weaponType": "Pistols",
+      "stats": {
+        "atk": { "min": 24, "max": 300 },
+        "secondaryStat": {
+          "name": "ATK",
+          "value": { "min": 6.7, "max": 30.3 }
+        }
+      }
+    },
+    {
       "id": "guardian_rectifier",
       "name": "Guardian Rectifier",
       "rarity": 3,
