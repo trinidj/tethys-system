@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "originite_type_5",
+      "name": "Originite: Type V",
+      "rarity": 3,
+      "weaponType": "Rectifier",
+      "stats": {
+        "atk": { "min": 24, "max": 300 },
+        "secondaryStat": {
+          "name": "HP",
+          "value": { "min": 6.7, "max": 30.3 }
+        }
+      }
+    },
+    {
       "id": "pistols_of_night",
       "name": "Pistols of Night",
       "rarity": 3,
