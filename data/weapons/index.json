@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "originite_type_4",
+      "name": "Originite: Type IV",
+      "rarity": 3,
+      "weaponType": "Gauntlets",
+      "stats": {
+        "atk": { "min": 24, "max": 300 },
+        "secondaryStat": {
+          "name": "Crit. DMG",
+          "value": { "min": 9.0, "max": 40.5 }
+        }
+      }
+    },
+    {
       "id": "originite_type_5",
       "name": "Originite: Type V",
       "rarity": 3,
