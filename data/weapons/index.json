@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "guardian_gauntlets",
+      "name": "Guardian Gauntlets",
+      "rarity": 3,
+      "weaponType": "Gauntlets",
+      "stats": {
+        "atk": { "min": 24, "max": 300 },
+        "secondaryStat": {
+          "name": "DEF",
+          "value": { "min": 8.5, "max": 38.4 }
+        }
+      }
+    },
+    {
       "id": "guardian_pistols",
       "name": "Guardian Pistols",
       "rarity": 3,
