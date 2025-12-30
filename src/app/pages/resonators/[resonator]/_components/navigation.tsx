@@ -22,7 +22,7 @@ export default function Navigation() {
   return (
     <div className="flex-col">
       <NavigationMenu viewport={!isMobile} className="fixed top-1/2 right-10 -translate-y-1/2">
-        <NavigationMenuList className="flex-col items-end gap-0">
+        <NavigationMenuList className="flex-col items-end">
           {resonatorNavItems.map((item) => (
             <NavigationMenuItem key={item.label}>
               <NavigationMenuLink asChild>

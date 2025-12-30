@@ -33,7 +33,7 @@ export default function NavBar() {
         </Button>
 
         <NavigationMenu viewport={isMobile}>
-          <NavigationMenuList className="gap-0">
+          <NavigationMenuList>
             {navItems.map((item) => (
               <NavigationMenuItem key={item.title}>
                 <NavigationMenuLink asChild>
