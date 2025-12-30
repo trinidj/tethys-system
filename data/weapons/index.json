@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "undying_flame",
+      "name": "Undying Flame",
+      "rarity": 4,
+      "weaponType": "Pistols",
+      "stats": {
+        "atk": { "min": 33, "max": 412 },
+        "secondaryStat": {
+          "name": "ATK",
+          "value": { "min": 6.7, "max": 30.3 }
+        }
+      }
+    },
+    {
       "id": "variation",
       "name": "Variation",
       "rarity": 4,
