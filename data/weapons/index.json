@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "sword_18",
+      "name": "Sword#18",
+      "rarity": 4,
+      "weaponType": "Sword",
+      "stats": {
+        "atk": { "min": 31, "max": 387 },
+        "secondaryStat": {
+          "name": "ATK",
+          "value": { "min": 8.1, "max": 36.4 }
+        }
+      }
+    },
+    {
       "id": "thunderbolt",
       "name": "Thunderbolt",
       "rarity": 4,
