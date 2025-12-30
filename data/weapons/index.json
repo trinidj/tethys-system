@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "waltz_in_masquerade",
+      "name": "Waltz in Masquerade",
+      "rarity": 4,
+      "weaponType": "Rectifier",
+      "stats": {
+        "atk": { "min": 37, "max": 462 },
+        "secondaryStat": {
+          "name": "ATK",
+          "value": { "min": 4.0, "max": 18.23 }
+        }
+      }
+    },
+    {
       "id": "waning_redshift",
       "name": "Waning Redshift",
       "rarity": 4,
