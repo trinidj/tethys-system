@@ -10,7 +10,7 @@ import {
   InputGroupAddon
 } from "@/components/ui/input-group"
 
-import { WeaponCard } from "@/app/weapons/weapon-card"
+import { WeaponCard } from "./weapon-card"
 import type { Weapon } from "@/types/weapon"
 import { useWeaponFilters } from "@/hooks/use-weapon-filter"
 

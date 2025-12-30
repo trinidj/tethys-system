@@ -24,7 +24,7 @@ export default function NavBar() {
           <Link href="/">
             <Image
               src="/assets/site_icon.png"
-              alt="Phrolova Logo"
+              alt="Tethys System Icon"
               width={32}
               height={32}
               quality={100}
@@ -33,12 +33,12 @@ export default function NavBar() {
         </Button>
 
         <NavigationMenu viewport={isMobile}>
-          <NavigationMenuList className="gap-2">
+          <NavigationMenuList className="gap-0">
             {navItems.map((item) => (
               <NavigationMenuItem key={item.title}>
                 <NavigationMenuLink asChild>
                   <Link href={item.url}>
-                    <span className="font-semibold text-sm">{item.title}</span>
+                    <span className="font-medium text-muted-foreground hover:text-foreground transition-all duration-150">{item.title}</span>
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>

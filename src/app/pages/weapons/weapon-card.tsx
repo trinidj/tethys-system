@@ -51,7 +51,7 @@ export function WeaponCard({ weapon }: { weapon: Weapon }) {
   )
 
   return (
-    <Link key={weapon.id} href={`/weapons/${weapon.id}`}>
+    <Link key={weapon.id} href={`/pages/weapons/${weapon.id}`}>
       {CardInner}
     </Link>
   )

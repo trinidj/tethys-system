@@ -122,7 +122,7 @@ export default function SearchDialog() {
                 return (
                   <Link
                     key={`resonator-${resonator.id}`}
-                    href={`/resonators/${resonator.id}`}
+                    href={`/pages/resonators/${resonator.id}`}
                     onClick={() => setOpen(false)}
                   >
                     <Item className="hover:bg-accent/50">
@@ -151,7 +151,7 @@ export default function SearchDialog() {
                 return (
                   <Link
                     key={`weapon-${weapon.id}`}
-                    href={`/weapons/${weapon.id}`}
+                    href={`/pages/weapons/${weapon.id}`}
                     onClick={() => setOpen(false)}
                   >
                     <Item className="hover:bg-accent/50">

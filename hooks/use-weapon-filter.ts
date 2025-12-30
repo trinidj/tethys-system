@@ -1,6 +1,6 @@
 import { useState, useMemo, useDeferredValue } from "react"
 import { Weapon } from "@/types/weapon"
-import { WeaponFilters } from "@/app/weapons/weapon-filter-dialog"
+import { WeaponFilters } from "@/src/app/pages/weapons/weapon-filter-dialog"
 
 export function useWeaponFilters(weapons: Weapon[]) {
   const [searchQuery, setSearchQuery] = useState("")

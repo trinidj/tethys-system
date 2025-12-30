@@ -88,7 +88,7 @@ export function ResonatorCard({ resonator }: { resonator: Resonator }) {
   }
 
   return (
-    <Link key={resonator.id} href={`/resonators/${resonator.id}`}>
+    <Link key={resonator.id} href={`/pages/resonators/${resonator.id}`}>
       {CardInner}
     </Link>
   )

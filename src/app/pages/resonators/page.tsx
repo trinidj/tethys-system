@@ -10,7 +10,7 @@ import {
   InputGroupAddon
 } from "@/components/ui/input-group"
 
-import { ResonatorCard } from "@/app/resonators/resonator-card"
+import { ResonatorCard } from "./resonator-card"
 import type { Resonator } from "@/types/resonator"
 import { useResonatorFilters } from "@/hooks/use-resonator-filter"
 
