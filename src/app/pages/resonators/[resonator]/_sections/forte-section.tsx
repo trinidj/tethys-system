@@ -62,6 +62,15 @@ export function Forte({ resonator, forteAscensionMaterials, forte }: ForteSectio
         <h2 className="font-bold text-3xl">Forte</h2>
       </header>
 
+      {!forte ? (
+        <Card className="p-6">
+          <CardContent className="px-0">
+            <p className="text-center text-muted-foreground py-4">
+              Forte Unavailable
+            </p>
+          </CardContent>
+        </Card>
+      ) : (
       <Card className="p-6">
         <CardContent className="px-0 flex flex-col gap-6">
           {/* Forte Skills */}
@@ -141,6 +150,8 @@ export function Forte({ resonator, forteAscensionMaterials, forte }: ForteSectio
                 </TabsContent>
               )
             })}
+
+            
 
             <Card className="p-6 border-0 bg-muted shadow-none">
               <CardHeader className="px-0">
@@ -229,6 +240,7 @@ export function Forte({ resonator, forteAscensionMaterials, forte }: ForteSectio
           </Tabs>
         </CardContent>
       </Card>
+      )}
     </section>
   )
 }

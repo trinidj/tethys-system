@@ -28,6 +28,15 @@ export function ResonanceChain({ resonator }: ResonanceChainProps) {
         <h2 className="font-bold text-3xl">Resonance Chain</h2>
       </header>
 
+      {!resonanceChain || resonanceChain.length === 0 ? (
+        <Card className="p-6">
+          <CardContent className="px-0">
+            <p className="text-center text-muted-foreground py-4">
+              Resonance Chain Unavailable
+            </p>
+          </CardContent>
+        </Card>
+      ) : (
       <Card className="p-6">
         <CardContent className="px-0">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -74,6 +83,7 @@ export function ResonanceChain({ resonator }: ResonanceChainProps) {
           </div>
         </CardContent>
       </Card>
+      )}
     </section>
   )
 }
