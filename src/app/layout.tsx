@@ -28,6 +28,9 @@ const robotoMono = Roboto_Mono({
 export const metadata: Metadata = {
   title: "Tethys System",
   description: "Wuthering Waves Database",
+  icons: {
+    icon: "/assets/site_icon.png",
+  },
 };
 
 export default async function RootLayout({
