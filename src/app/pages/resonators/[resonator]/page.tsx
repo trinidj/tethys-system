@@ -5,7 +5,8 @@ import { Forte } from "./_sections/forte-section";
 import { ResonanceChain } from "./_sections/resonance-chain-section";
 import { getResonatorAscension, getResonatorBySlug, getAllResonatorSlugs, getForteAscension, getResonatorForte, parseForteMarkdown } from "./_lib/data";
 import { getResonatorAssets } from "@/utils/resonator-assets";
- 
+import Navigation from "./_components/navigation";
+
 export const dynamicParams = false
 
 export async function generateStaticParams() {
@@ -49,8 +50,13 @@ export default async function Resonator({ params }: { params: Promise<{ resonato
         hasSplashArt={hasSplashArt}
         resonatorAscensionMaterials={resonatorAscensionMaterials}
       />
-      <Forte resonator={resonatorData} forteAscensionMaterials={forteAscensionMaterials} forte={parsedForte} />
+      <Forte 
+        resonator={resonatorData} 
+        forteAscensionMaterials={forteAscensionMaterials} 
+        forte={parsedForte} 
+      />
       <ResonanceChain resonator={resonatorData} />
+      <Navigation />
     </div>
   );
 }
