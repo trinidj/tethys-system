@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "stonard",
+      "name": "Stonard",
+      "rarity": 4,
+      "weaponType": "Gauntlets",
+      "stats": {
+        "atk": { "min": 33, "max": 412 },
+        "secondaryStat": {
+          "name": "Crit. Rate",
+          "value": { "min": 4.5, "max": 20.2 }
+        }
+      }
+    },
+    {
       "id": "sword_18",
       "name": "Sword#18",
       "rarity": 4,
