@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "variation",
+      "name": "Variation",
+      "rarity": 4,
+      "weaponType": "Rectifier",
+      "stats": {
+        "atk": { "min": 27, "max": 337 },
+        "secondaryStat": {
+          "name": "Energy Regen",
+          "value": { "min": 11.5, "max": 51.8 }
+        }
+      }
+    },
+    {
       "id": "waltz_in_masquerade",
       "name": "Waltz in Masquerade",
       "rarity": 4,
