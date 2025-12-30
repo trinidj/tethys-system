@@ -63,7 +63,7 @@ export default function Profile({ resonator, hasSplashArt, resonatorAscensionMat
   const isRover = resonator.id.startsWith("rover")
 
   return (
-    <section id="profile" className="flex flex-col lg:flex-row gap-6 md:gap-10 lg:gap-14">
+    <section id="profile" className="flex flex-col lg:flex-row gap-6 md:gap-10 lg:gap-14 scroll-mt-8">
       {/* Sprite */}
       <Card className="relative h-[500px] sm:h-[600px] lg:h-[675px] w-full lg:w-[350px] xl:w-[400px] p-0 overflow-hidden shadow-none bg-linear-to-t from-background to-card mx-auto lg:mx-0">
         <CardContent className="h-full p-0">

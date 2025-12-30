@@ -57,7 +57,7 @@ export function Forte({ resonator, forteAscensionMaterials, forte }: ForteSectio
   ] as const;
 
   return (
-    <section id="forte" className="flex flex-col gap-6">
+    <section id="forte" className="flex flex-col gap-6 scroll-mt-8">
       <header>
         <h2 className="font-bold text-3xl">Forte</h2>
       </header>

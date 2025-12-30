@@ -23,7 +23,7 @@ export function ResonanceChain({ resonator }: ResonanceChainProps) {
   const attributeColor = getAttributeColor(resonator.attribute)
 
   return (
-    <section id="resonance-chain" className="flex flex-col gap-6">
+    <section id="resonance-chain" className="flex flex-col gap-6 scroll-mt-8">
       <header>
         <h2 className="font-bold text-3xl">Resonance Chain</h2>
       </header>
