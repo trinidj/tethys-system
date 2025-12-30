@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "waning_redshift",
+      "name": "Waning Redshift",
+      "rarity": 4,
+      "weaponType": "Broadblade",
+      "stats": {
+        "atk": { "min": 37, "max": 462 },
+        "secondaryStat": {
+          "name": "ATK",
+          "value": { "min": 4.0, "max": 18.2 }
+        }
+      }
+    },
+    {
       "id": "beguiling_melody",
       "name": "Beguiling Melody",
       "rarity": 3,
