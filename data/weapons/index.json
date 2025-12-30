@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "somnoire_anchor",
+      "name": "Somnoire Anchor",
+      "rarity": 4,
+      "weaponType": "Sword",
+      "stats": {
+        "atk": { "min": 37, "max": 462 },
+        "secondaryStat": {
+          "name": "ATK",
+          "value": { "min": 4.0, "max": 18.2 }
+        }
+      }
+    },
+    {
       "id": "stonard",
       "name": "Stonard",
       "rarity": 4,
