@@ -1,6 +1,19 @@
 {
   "weapons": [
     {
+      "id": "thunderbolt",
+      "name": "Thunderbolt",
+      "rarity": 4,
+      "weaponType": "Pistols",
+      "stats": {
+        "atk": { "min": 31, "max": 387 },
+        "secondaryStat": {
+          "name": "ATK",
+          "value": { "min": 8.1, "max": 36.4 }
+        }
+      }
+    },
+    {
       "id": "undying_flame",
       "name": "Undying Flame",
       "rarity": 4,
