@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Nextjs } from "@/components/icons/next-js-icon";
-import { TailwindCSS } from "@/components/icons/tailwindcss-icon";
+import { React } from "@/components/icons/react-icon";
 import { shadcnui } from "@/components/icons/shadcn-icon";
 import { GitHub } from "@/components/icons/github-icon";
 import AppSidebar from "@/components/app-sidebar";
@@ -43,7 +43,7 @@ export default async function RootLayout({
 
   const footerLinks = [
     { name: "Nextjs", url: "https://nextjs.org/", icon: Nextjs },
-    { name: "Tailwind", url: "https://tailwindcss.com/", icon: TailwindCSS },
+    { name: "React", url: "https://react.dev/", icon: React },
     { name: "shadcnui", url: "https://ui.shadcn.com/", icon: shadcnui }
   ]
 

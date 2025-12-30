@@ -1,7 +1,7 @@
 import type { SVGProps } from "react";
 
 const shadcnui = ({ width = 24, height = 24, ...props }: SVGProps<SVGSVGElement>) => (
-  <svg width={width} height={height} {...props} {...props} viewBox="0 0 256 256">
+  <svg width={width} height={height} {...props} viewBox="0 0 256 256">
     <path fill="none" d="M0 0h256v256H0z" />
     <path
       fill="none"
