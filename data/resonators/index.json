@@ -1,6 +1,18 @@
 {
   "resonators": [
     {
+      "id": "aemeath",
+      "name": "Aemeath",
+      "rarity": 5,
+      "attribute": "Fusion",
+      "weaponType": "Sword",
+      "description": "???",
+      "combatRoles": [
+        ""
+      ],
+      "stats": {}
+    },
+    {
       "id": "augusta",
       "name": "Augusta",
       "rarity": 5,
@@ -649,6 +661,18 @@
         "japanese": "Takahashi Minami (髙橋ミナミ)",
         "korean": "Kim Ye-ryeong (김예령)"
       }
+    },
+    {
+      "id": "luuk_herssen",
+      "name": "Luuk Herssen",
+      "rarity": 5,
+      "attribute": "Spectro",
+      "weaponType": "Gauntlets",
+      "description": "???",
+      "combatRoles": [
+        ""
+      ],
+      "stats": {}
     },
     {
       "id": "lynae",
