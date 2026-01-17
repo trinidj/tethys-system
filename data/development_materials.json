@@ -57,6 +57,10 @@
       "rarity": "Premium"
     },
     {
+      "name": "FF Mech Core",
+      "rarity": "Premium"
+    },
+    {
       "name": "Polarized Metallic Drip",
       "rarity": "Advanced"
     },
@@ -209,6 +213,14 @@
       "rarity": "Advanced"
     },
     {
+      "name": "Burning Judgement",
+      "rarity": "Advanced"
+    },
+    {
+      "name": "HF Mech Core",
+      "rarity": "Advanced"
+    },
+    {
       "name": "Reactive Metallic Drip",
       "rarity": "Medium"
     },
@@ -258,6 +270,10 @@
     },
     {
       "name": "Aftertune Combustor",
+      "rarity": "Medium"
+    },
+    {
+      "name": "MF Mech Core",
       "rarity": "Medium"
     },
     {
@@ -354,6 +370,10 @@
     },
     {
       "name": "Rimewisp",
+      "rarity": "Local"
+    },
+    {
+      "name": "Gemini Spore",
       "rarity": "Local"
     }
   ]

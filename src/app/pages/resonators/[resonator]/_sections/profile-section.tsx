@@ -216,9 +216,9 @@ export default function Profile({ resonator, hasSplashArt, resonatorAscensionMat
           <CardContent className="px-0">
             <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7">
               {totalMaterials.map((material) => (
-                <Card key={material.item.name} className="p-0 overflow-hidden">
-                  <CardContent className="px-0">
-                    <div className="flex items-center justify-center">
+                <Card key={material.item.name} className="p-0 overflow-hidden gap-0">
+                  <CardContent className="px-0 h-full flex flex-col">
+                    <div className="flex-1 flex items-center justify-center">
                       <Image
                         src={`${getMaterialAssets(material.item.name, material.item.type)}`}
                         alt={material.item.name}
@@ -230,7 +230,7 @@ export default function Profile({ resonator, hasSplashArt, resonatorAscensionMat
                     </div>
 
                     <div 
-                      className="bg-black/20 to-card h-6 flex items-center justify-center border-t-2"
+                      className="bg-black/20 to-card h-6 flex items-center justify-center border-t-2 mt-auto"
                       style={{
                         borderColor: `var(--${getDevelopmentMaterialRarityColor(material.item.rarity)})`,
                         boxShadow: `0 -4px 12px -2px var(--${getDevelopmentMaterialRarityColor(material.item.rarity)})`

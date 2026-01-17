@@ -1,0 +1,42 @@
+[
+  {
+    "level": "90",
+    "materials": [
+      {
+        "name": "Burning Judgement",
+        "amount": 46,
+        "type": "boss"
+      },
+      {
+        "name": "Gemini Spore",
+        "amount": 60,
+        "type": "local"
+      },
+      {
+        "name": "LF Mech Core",
+        "amount": 4,
+        "type": "common"
+      },
+      {
+        "name": "MF Mech Core",
+        "amount": 12,
+        "type": "common"
+      },
+      {
+        "name": "HF Mech Core",
+        "amount": 12,
+        "type": "common"
+      },                                
+      {
+        "name": "FF Mech Core",
+        "amount": 4,
+        "type": "common"
+      },
+      {
+        "name": "Shell Credits",
+        "amount": 170000,
+        "type": "currency"
+      }
+    ]
+  }
+]
