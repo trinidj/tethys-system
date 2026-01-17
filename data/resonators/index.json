@@ -656,7 +656,7 @@
       "rarity": 5,
       "attribute": "Spectro",
       "weaponType": "Pistols",
-      "isNew": true,
+      "isNew": false,
       "description": "Radiant Spectrum",
       "combatRoles": [
         "Concerto Efficiency", 
@@ -688,11 +688,29 @@
       "rarity": 5,
       "attribute": "Fusion",
       "weaponType": "Broadblade",
-      "description": "???",
+      "isNew": true,
+      "description": "Astral Mapping",
       "combatRoles": [
-        ""
+        "Support and Healer",
+        "DMG Amplification",
+        "Tune Rupture Response",
+        "Tune Strain Response",
+        "Off-Tune Buildup Efficiency"
       ],
-      "stats": {}
+      "stats": {
+        "hp": {
+          "min": 1230,
+          "max": 15375
+        },
+        "atk": {
+          "min": 23,
+          "max": 288
+        },
+        "def": {
+          "min": 111,
+          "max": 1357
+        }
+      }
     },
     {
       "id": "phoebe",

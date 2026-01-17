@@ -141,7 +141,7 @@
       "description": "Gains total DMG increase from Tune Break Boost"
     },
     {
-      "name": "Off-Tune Build up Efficiency",
+      "name": "Off-Tune Buildup Efficiency",
       "description": "Boosts the Off-Tune Buildup Rate for a specific Resonator in the team"
     }
   ]
