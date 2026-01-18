@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { Search } from "lucide-react"
 import dynamic from "next/dynamic"
+import { motion, AnimatePresence } from "motion/react"
 
 import {
   InputGroup,
@@ -14,8 +15,31 @@ import { ResonatorCard } from "./resonator-card"
 import type { Resonator } from "@/types/resonator"
 import { useResonatorFilters } from "@/hooks/use-resonator-filter"
 
+function useColumnCount() {
+  const [columns, setColumns] = useState(2)
+
+  useEffect(() => {
+    function updateColumns() {
+      const width = window.innerWidth
+      if (width >= 1536) setColumns(8)      // 2xl
+      else if (width >= 1280) setColumns(6) // xl
+      else if (width >= 1024) setColumns(5) // lg
+      else if (width >= 768) setColumns(4)  // md
+      else if (width >= 640) setColumns(3)  // sm
+      else setColumns(2)
+    }
+
+    updateColumns()
+    window.addEventListener("resize", updateColumns)
+    return () => window.removeEventListener("resize", updateColumns)
+  }, [])
+
+  return columns
+}
+
 export default function ResonatorsPage() {
   const [resonators, setResonators] = useState<Resonator[]>([])
+  const columns = useColumnCount()
 
   useEffect(() => {
     async function fetchResonators() {
@@ -68,14 +92,32 @@ export default function ResonatorsPage() {
 
       <section className="container">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8">
-          {filteredResonators.map((resonator) => (
-            <ResonatorCard key={resonator.id} resonator={resonator} />
-          ))}
+          <AnimatePresence mode="popLayout">
+            {filteredResonators.map((resonator, index) => {
+              const row = Math.floor(index / columns)
+              return (
+                <motion.div
+                  key={resonator.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3, delay: row * 0.1 }}
+                >
+                  <ResonatorCard resonator={resonator} />
+                </motion.div>
+              )
+            })}
+          </AnimatePresence>
 
           {filteredResonators.length === 0 && (
-            <div className="col-span-full py-12 text-center text-muted-foreground">
+            <motion.div
+              className="col-span-full py-12 text-center text-muted-foreground"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            >
               No resonators found
-            </div>
+            </motion.div>
           )}
         </div>
       </section>
